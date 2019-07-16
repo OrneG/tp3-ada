@@ -1,0 +1,100 @@
+header {
+    height: 75px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    margin-left: 95px;
+
+    svg {
+        margin-left: 30px;
+        height: 18px;
+    }
+}
+
+nav {
+    width: 95px;
+    display: block;
+
+    ul {
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 400px;
+
+        li{
+            list-style: none;
+        }
+
+        a {
+            text-decoration: inherit;
+        
+            &:visited {
+                color: inherit;
+            }
+        }
+
+        h3 {
+            font-family: $principal-font;
+            font-size: $nav-size;
+            color: $dark-fade;
+            font-weight: $light-weight;
+        }
+    }
+}
+
+.search-box {
+    outline: none;
+    width: 100%;
+
+    input {
+        padding: 15px 30px 15px 10px;
+        border-color: transparent;
+        font-size: $search-size;
+        font-family: $principal-font;
+        font-weight: $light-weight;
+        width: 90%;
+
+        &:focus {
+            outline: none;
+            color: $dark;
+        }
+    }
+}
+
+.box-ada, .nav-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 95px;
+    height: 75px;
+}
+
+.box-ada {
+    background-color: $dark;
+    
+    img {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+.nav-box {
+    border-bottom: solid $light 2px;
+
+    &:hover h3 {
+        color: $dark;
+    }
+
+    &:hover svg {
+        fill: $dark;
+    }
+}
+
+img, svg {
+    fill: $dark-fade;
+    width: 20px;
+    height: 20px;
+}

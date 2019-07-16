@@ -1,3 +1,8 @@
+@charset "UTF-8";
+/*fuente principal*/
+/*pesos fuentes*/
+/*tamaño fuentes*/
+/*colores*/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -342,5 +347,100 @@ ul {
 }
 
 /*# sourceMappingURL=normalize.css.map */
+body {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+header {
+  height: 75px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  margin-left: 95px;
+}
+header svg {
+  margin-left: 30px;
+  height: 18px;
+}
+
+nav {
+  width: 95px;
+  display: block;
+}
+nav ul {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 400px;
+}
+nav ul li {
+  list-style: none;
+}
+nav ul a {
+  text-decoration: inherit;
+}
+nav ul a:visited {
+  color: inherit;
+}
+nav ul h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  color: #081c249f;
+  font-weight: 300;
+}
+
+.search-box {
+  outline: none;
+  width: 100%;
+}
+.search-box input {
+  padding: 15px 30px 15px 10px;
+  border-color: transparent;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  width: 90%;
+}
+.search-box input:focus {
+  outline: none;
+  color: #081c24;
+}
+
+.box-ada, .nav-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 95px;
+  height: 75px;
+}
+
+.box-ada {
+  background-color: #081c24;
+}
+.box-ada img {
+  width: 38px;
+  height: 38px;
+}
+
+.nav-box {
+  border-bottom: solid #f8f8f8 2px;
+}
+.nav-box:hover h3 {
+  color: #081c24;
+}
+.nav-box:hover svg {
+  fill: #081c24;
+}
+
+img, svg {
+  fill: #081c249f;
+  width: 20px;
+  height: 20px;
+}
 
 /*# sourceMappingURL=main.css.map */
