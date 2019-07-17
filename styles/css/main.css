@@ -349,8 +349,25 @@ ul {
 /*# sourceMappingURL=normalize.css.map */
 body {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  background-color: #f8f8f8;
+}
+
+main {
+  margin-top: 75px;
+  height: 382px;
+  width: 100%;
+  display: block;
+}
+
+.banner {
+  background-image: url("/img/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 382px;
+  width: 100%;
+  opacity: 0.5;
+  position: relative;
 }
 
 header {
@@ -360,6 +377,7 @@ header {
   align-items: center;
   position: fixed;
   margin-left: 95px;
+  background-color: #f8f8f8;
 }
 header svg {
   margin-left: 30px;
@@ -369,6 +387,7 @@ header svg {
 nav {
   width: 95px;
   display: block;
+  background-color: #ffffff;
 }
 nav ul {
   padding-left: 0;
@@ -389,8 +408,9 @@ nav ul a:visited {
 nav ul h3 {
   font-family: "Roboto", sans-serif;
   font-size: 10px;
-  color: #081c249f;
+  color: #081c2488;
   font-weight: 300;
+  transition: color 0.6s ease 0.2s;
 }
 
 .search-box {
@@ -400,6 +420,7 @@ nav ul h3 {
 .search-box input {
   padding: 15px 30px 15px 10px;
   border-color: transparent;
+  background-color: transparent;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
@@ -407,7 +428,9 @@ nav ul h3 {
 }
 .search-box input:focus {
   outline: none;
-  color: #081c24;
+}
+.search-box input:focus #iconSearch {
+  fill: #081c24;
 }
 
 .box-ada, .nav-box {
@@ -437,10 +460,11 @@ nav ul h3 {
   fill: #081c24;
 }
 
-img, svg {
-  fill: #081c249f;
+svg {
+  fill: #081c2488;
   width: 20px;
   height: 20px;
+  transition: fill 0.6s ease 0.2s;
 }
 
 /*# sourceMappingURL=main.css.map */

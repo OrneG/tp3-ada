@@ -5,6 +5,7 @@ header {
     align-items: center;
     position: fixed;
     margin-left: 95px;
+    background-color: $light;
 
     svg {
         margin-left: 30px;
@@ -15,6 +16,7 @@ header {
 nav {
     width: 95px;
     display: block;
+    background-color: #ffffff;
 
     ul {
         padding-left: 0;
@@ -40,6 +42,7 @@ nav {
             font-size: $nav-size;
             color: $dark-fade;
             font-weight: $light-weight;
+            transition: color .6s ease .2s;
         }
     }
 }
@@ -51,6 +54,7 @@ nav {
     input {
         padding: 15px 30px 15px 10px;
         border-color: transparent;
+        background-color: transparent;
         font-size: $search-size;
         font-family: $principal-font;
         font-weight: $light-weight;
@@ -58,7 +62,10 @@ nav {
 
         &:focus {
             outline: none;
-            color: $dark;
+
+            #iconSearch {
+                fill: $dark;
+            }
         }
     }
 }
@@ -93,8 +100,9 @@ nav {
     }
 }
 
-img, svg {
+svg {
     fill: $dark-fade;
     width: 20px;
     height: 20px;
+    transition: fill .6s ease .2s;
 }
