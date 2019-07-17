@@ -29,19 +29,9 @@ nav {
             list-style: none;
         }
 
-        a {
-            text-decoration: inherit;
-        
-            &:visited {
-                color: inherit;
-            }
-        }
-
         h3 {
-            font-family: $principal-font;
             font-size: $nav-size;
             color: $dark-fade;
-            font-weight: $light-weight;
             transition: color .6s ease .2s;
         }
     }
