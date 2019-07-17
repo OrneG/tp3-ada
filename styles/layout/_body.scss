@@ -11,12 +11,16 @@ main {
 }
 
 .banner {
-    background-image: url('/img/background.png');
+    background-image: url("../../img/banner.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
+    background-position: 0% 20%;
     height: 382px;
     width: 100%;
     opacity: 0.5;
     position: relative;
+}
+
+.movie-section {
+    width: 100%;
 }
