@@ -35,12 +35,22 @@ main {
 }
 
 .movies-section {
-    width: 100%;
+    width: 96%;
     display: flex;
     flex-direction: column;
+    margin: 0px 30px;
+    box-sizing: border-box;
+
+    #movie-poster {
+        height: 250px;
+    }
+
+    #movie-title {
+        max-width: 150px;
+    }
 }
 
-.movies-tittle {
+.movies-title {
     display: flex;
     justify-content: space-between;
 
@@ -54,6 +64,26 @@ main {
 
         &:hover {
             color: $dark;
+        }
+    }
+
+    i {
+        color: $dark-fade;
+        margin-left: 20px;
+    }
+}
+
+#movies-body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    .movie-node {
+        margin: 0px 10px;
+
+        .movie-title {
+            flex-wrap: wrap;
         }
     }
 }
