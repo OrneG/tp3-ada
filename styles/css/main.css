@@ -380,19 +380,43 @@ main {
   opacity: 0.5;
   position: relative;
 }
+.banner #banner-title {
+  position: absolute;
+  transform: translate(160%, 185px);
+  margin: 0;
+  color: #081c24;
+  opacity: 1;
+}
 
 .movies-section {
-  width: 100%;
+  width: 96%;
   display: flex;
   flex-direction: column;
-  margin: 0px 20px;
+  margin: 0px 30px;
   box-sizing: border-box;
+}
+.movies-section .popular-section, .movies-section .top-rated-section, .movies-section .upcoming-section, .movies-section .now-playing-section {
+  display: flex;
+  flex-direction: column;
+}
+.movies-section .popular-section #popular-section, .movies-section .popular-section #top-rated-section, .movies-section .popular-section #upcoming-section, .movies-section .popular-section #now-playing-section, .movies-section .top-rated-section #popular-section, .movies-section .top-rated-section #top-rated-section, .movies-section .top-rated-section #upcoming-section, .movies-section .top-rated-section #now-playing-section, .movies-section .upcoming-section #popular-section, .movies-section .upcoming-section #top-rated-section, .movies-section .upcoming-section #upcoming-section, .movies-section .upcoming-section #now-playing-section, .movies-section .now-playing-section #popular-section, .movies-section .now-playing-section #top-rated-section, .movies-section .now-playing-section #upcoming-section, .movies-section .now-playing-section #now-playing-section {
+  display: flex;
+  justify-content: space-between;
 }
 .movies-section #movie-poster {
   height: 250px;
+  transition: height 0.4s ease 0.1s;
 }
 .movies-section #movie-title {
   max-width: 150px;
+  color: #081c2488;
+  transition: color 0.4s ease 0.1s;
+}
+.movies-section #movie-node:hover #movie-poster {
+  height: 260px;
+}
+.movies-section #movie-node:hover #movie-title {
+  color: #081c24;
 }
 
 .movies-title {
@@ -412,6 +436,7 @@ main {
 .movies-title i {
   color: #081c2488;
   margin-left: 20px;
+  font-size: 10px;
 }
 
 #movies-body {
@@ -437,7 +462,7 @@ header {
   background-color: #f8f8f8;
   z-index: 999;
 }
-header svg {
+header img {
   margin-left: 30px;
   height: 18px;
 }
@@ -460,7 +485,12 @@ nav ul li {
 nav ul h3 {
   font-size: 10px;
   color: #081c2488;
-  transition: color 0.6s ease 0.2s;
+  transition: color 0.4s ease 0.1s;
+}
+
+#iconSearch, .nav-icon {
+  opacity: 0.5;
+  transition: opacity 0.4s ease-out 0.1s;
 }
 
 .search-box {
@@ -480,7 +510,7 @@ nav ul h3 {
   outline: none;
 }
 .search-box input:focus #iconSearch {
-  fill: #081c24;
+  opacity: 0.8;
 }
 
 .box-ada, .nav-box {
@@ -506,15 +536,12 @@ nav ul h3 {
 .nav-box:hover h3 {
   color: #081c24;
 }
-.nav-box:hover svg {
-  fill: #081c24;
+.nav-box:hover .nav-icon {
+  opacity: 0.8;
 }
-
-svg {
-  fill: #081c2488;
+.nav-box img {
   width: 20px;
   height: 20px;
-  transition: fill 0.6s ease 0.2s;
 }
 
 /*# sourceMappingURL=main.css.map */

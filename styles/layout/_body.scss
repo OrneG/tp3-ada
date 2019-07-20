@@ -32,6 +32,14 @@ main {
     width: 100%;
     opacity: 0.5;
     position: relative;
+
+    #banner-title {
+        position: absolute;
+        transform: translate(160%, 185px);
+        margin: 0;
+        color: $dark;
+        opacity: 1;
+    }
 }
 
 .movies-section {
@@ -41,12 +49,34 @@ main {
     margin: 0px 30px;
     box-sizing: border-box;
 
+    .popular-section, .top-rated-section, .upcoming-section, .now-playing-section {
+        display: flex;
+        flex-direction: column;
+
+        #popular-section, #top-rated-section, #upcoming-section, #now-playing-section {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
     #movie-poster {
         height: 250px;
+        transition: height .4s ease .1s;
     }
 
     #movie-title {
         max-width: 150px;
+        color: $dark-fade;
+        transition: color .4s ease .1s;
+    }
+    
+    #movie-node:hover {
+        #movie-poster {
+            height: 260px;
+        }
+        #movie-title {
+            color: $dark;
+        }
     }
 }
 
@@ -70,6 +100,7 @@ main {
     i {
         color: $dark-fade;
         margin-left: 20px;
+        font-size: $nav-size;
     }
 }
 
