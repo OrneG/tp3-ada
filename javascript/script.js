@@ -14,11 +14,17 @@ const popularSection = document.getElementById('popular');
 const topRatedSection = document.getElementById('top-rated');
 const upcomingSection = document.getElementById('upcoming');
 const nowPlayingSection = document.getElementById('now-playing');
+const searchSection = document.getElementById('search-results');
 /*secciones-pelis*/
 const popular = document.getElementById('popular-section');
 const topRated = document.getElementById('top-rated-section');
 const upcoming = document.getElementById('upcoming-section');
 const nowPlaying = document.getElementById('now-playing-section');
+const searchResult = document.getElementById('search-results-section');
+
+const search = document.getElementById('search');
+
+let textoBusqueda = search.value;
 
 // let timeout;
 
@@ -27,10 +33,10 @@ const nowPlaying = document.getElementById('now-playing-section');
 
 //     timeout = setTimeout(() => {
 //         if (search.value)
-//             updateArtist(search.value);
-//             updateAlbums(search.value);
+//             updatePage(search.value);
 //     }, 300);
 // }
+
 
 const getMovies = (url, movie) => {
     fetch(url)
@@ -83,35 +89,52 @@ const updatePage = (url, movie) => {
 }
 
 popularNav.onclick = function () {
+    popularSection.style.display = 'block';
     topRatedSection.style.display = 'none';
     upcomingSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
-    updatePage(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`, popular);
+    updatePage(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=1`, popular);
 }
 
 topRatedNav.onclick = function () {
+    topRatedSection.style.display = 'block';
     popularSection.style.display = 'none';
     upcomingSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
-    updatePage(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`, topRated);
+    updatePage(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=1`, topRated);
 }
 
 upcomingNav.onclick = function () {
+    upcomingSection.style.display = 'block';
     popularSection.style.display = 'none';
     topRatedSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
-    updatePage(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`, upcoming);
+    updatePage(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=1`, upcoming);
 }
 
 nowPlayingNav.onclick = function () {
+    nowPlayingSection.style.display = 'block';
     popularSection.style.display = 'none';
     topRatedSection.style.display = 'none';
     upcomingSection.style.display = 'none';
-    updatePage(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`, nowPlaying);
+    updatePage(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=1`, nowPlaying);
 }
+
+
+search.onkeypress = function () {
+    searchResult.style.display = 'block';
+    upcomingSection.style.display = 'none';
+    popularSection.style.display = 'none';
+    topRatedSection.style.display = 'none';
+    nowPlayingSection.style.display = 'none';
+    updatePage(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search.value}`, searchResult);
+}
+
 
 const updatePopular = () => {
     getMovies(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`, popular)
+
+
 }
 
 updatePopular();
@@ -131,5 +154,7 @@ updateUpcomingMovies();
 const updateNowPlaying = () => {
     getMovies(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`, nowPlaying)
 }
+
+
 
 updateNowPlaying();

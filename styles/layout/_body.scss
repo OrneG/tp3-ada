@@ -64,11 +64,11 @@ main {
     box-sizing: border-box;
     align-content: space-between;
 
-    #popular, #top-rated, #upcoming, #now-playing {
+    #popular, #top-rated, #upcoming, #now-playing, #search-results {
         display: flex;
         flex-direction: column;
 
-        #popular-section, #top-rated-section, #upcoming-section, #now-playing-section {
+        #popular-section, #top-rated-section, #upcoming-section, #now-playing-section, #search-results-section {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;

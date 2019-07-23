@@ -410,11 +410,11 @@ main {
   box-sizing: border-box;
   align-content: space-between;
 }
-.movies-section #popular, .movies-section #top-rated, .movies-section #upcoming, .movies-section #now-playing {
+.movies-section #popular, .movies-section #top-rated, .movies-section #upcoming, .movies-section #now-playing, .movies-section #search-results {
   display: flex;
   flex-direction: column;
 }
-.movies-section #popular #popular-section, .movies-section #popular #top-rated-section, .movies-section #popular #upcoming-section, .movies-section #popular #now-playing-section, .movies-section #top-rated #popular-section, .movies-section #top-rated #top-rated-section, .movies-section #top-rated #upcoming-section, .movies-section #top-rated #now-playing-section, .movies-section #upcoming #popular-section, .movies-section #upcoming #top-rated-section, .movies-section #upcoming #upcoming-section, .movies-section #upcoming #now-playing-section, .movies-section #now-playing #popular-section, .movies-section #now-playing #top-rated-section, .movies-section #now-playing #upcoming-section, .movies-section #now-playing #now-playing-section {
+.movies-section #popular #popular-section, .movies-section #popular #top-rated-section, .movies-section #popular #upcoming-section, .movies-section #popular #now-playing-section, .movies-section #popular #search-results-section, .movies-section #top-rated #popular-section, .movies-section #top-rated #top-rated-section, .movies-section #top-rated #upcoming-section, .movies-section #top-rated #now-playing-section, .movies-section #top-rated #search-results-section, .movies-section #upcoming #popular-section, .movies-section #upcoming #top-rated-section, .movies-section #upcoming #upcoming-section, .movies-section #upcoming #now-playing-section, .movies-section #upcoming #search-results-section, .movies-section #now-playing #popular-section, .movies-section #now-playing #top-rated-section, .movies-section #now-playing #upcoming-section, .movies-section #now-playing #now-playing-section, .movies-section #now-playing #search-results-section, .movies-section #search-results #popular-section, .movies-section #search-results #top-rated-section, .movies-section #search-results #upcoming-section, .movies-section #search-results #now-playing-section, .movies-section #search-results #search-results-section {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
