@@ -353,7 +353,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 body a {
-  text-decoration: inherit;
+  text-decoration: none;
 }
 body a:visited {
   color: inherit;
@@ -364,7 +364,7 @@ h2, h3, h4 {
 }
 
 main {
-  margin-top: 75px;
+  margin: 75px 0px 0px 95px;
   height: 382px;
   width: 100%;
   display: block;
@@ -388,8 +388,14 @@ main {
   opacity: 1;
 }
 
+.section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .movies-section {
-  width: 96%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   margin: 0px 30px;
@@ -405,38 +411,47 @@ main {
 }
 .movies-section #movie-poster {
   height: 250px;
-  transition: height 0.4s ease 0.1s;
+  transform: scale(1);
+  transition: scale 0.4s ease 0.1s;
 }
 .movies-section #movie-title {
   max-width: 150px;
   color: #081c2488;
-  transition: color 0.4s ease 0.1s;
+  font-size: 14px;
 }
 .movies-section #movie-node:hover #movie-poster {
-  height: 260px;
+  transform: scale(1.05);
 }
 .movies-section #movie-node:hover #movie-title {
   color: #081c24;
 }
 
+#movie-title, .view-all, i {
+  transition: color 0.4s ease 0.1s;
+}
+
 .movies-title {
   display: flex;
   justify-content: space-between;
+  margin: 20px 0px;
 }
 .movies-title h2 {
   color: #081c24;
   font-size: 20px;
 }
-.movies-title h4 {
+.movies-title .view-all {
   color: #081c2488;
+  font-size: 14px;
 }
-.movies-title h4:hover {
+.movies-title .view-all:hover {
+  color: #081c24;
+}
+.movies-title .view-all:hover i {
   color: #081c24;
 }
 .movies-title i {
   color: #081c2488;
-  margin-left: 20px;
-  font-size: 10px;
+  margin-left: 10px;
 }
 
 #movies-body {
@@ -450,6 +465,10 @@ main {
 }
 #movies-body .movie-node .movie-title {
   flex-wrap: wrap;
+}
+
+.hidden {
+  display: none;
 }
 
 header {
@@ -469,6 +488,9 @@ header img {
 
 nav {
   width: 95px;
+  min-height: 100vh;
+  position: fixed;
+  z-index: 999;
   display: block;
   background-color: #ffffff;
 }
@@ -477,7 +499,6 @@ nav ul {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 400px;
 }
 nav ul li {
   list-style: none;
@@ -486,6 +507,7 @@ nav ul h3 {
   font-size: 10px;
   color: #081c2488;
   transition: color 0.4s ease 0.1s;
+  margin: 10px 0px 0px 0px;
 }
 
 #iconSearch, .nav-icon {
@@ -519,11 +541,11 @@ nav ul h3 {
   flex-direction: column;
   align-items: center;
   width: 95px;
-  height: 75px;
 }
 
 .box-ada {
   background-color: #081c24;
+  height: 75px;
 }
 .box-ada img {
   width: 38px;
@@ -532,6 +554,7 @@ nav ul h3 {
 
 .nav-box {
   border-bottom: solid #f8f8f8 2px;
+  height: 93.8px;
 }
 .nav-box:hover h3 {
   color: #081c24;
