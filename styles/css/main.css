@@ -377,7 +377,6 @@ main {
   background-position: 0% 20%;
   height: 382px;
   width: 100%;
-  opacity: 0.5;
   position: relative;
 }
 .banner #banner-title {
@@ -385,7 +384,16 @@ main {
   transform: translate(160%, 185px);
   margin: 0;
   color: #081c24;
-  opacity: 1;
+}
+
+.background-over {
+  position: absolute;
+  background: #ffffff;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
 }
 
 .section-container {
@@ -400,19 +408,21 @@ main {
   flex-direction: column;
   margin: 0px 30px;
   box-sizing: border-box;
+  align-content: space-between;
 }
-.movies-section .popular-section, .movies-section .top-rated-section, .movies-section .upcoming-section, .movies-section .now-playing-section {
+.movies-section #popular, .movies-section #top-rated, .movies-section #upcoming, .movies-section #now-playing {
   display: flex;
   flex-direction: column;
 }
-.movies-section .popular-section #popular-section, .movies-section .popular-section #top-rated-section, .movies-section .popular-section #upcoming-section, .movies-section .popular-section #now-playing-section, .movies-section .top-rated-section #popular-section, .movies-section .top-rated-section #top-rated-section, .movies-section .top-rated-section #upcoming-section, .movies-section .top-rated-section #now-playing-section, .movies-section .upcoming-section #popular-section, .movies-section .upcoming-section #top-rated-section, .movies-section .upcoming-section #upcoming-section, .movies-section .upcoming-section #now-playing-section, .movies-section .now-playing-section #popular-section, .movies-section .now-playing-section #top-rated-section, .movies-section .now-playing-section #upcoming-section, .movies-section .now-playing-section #now-playing-section {
+.movies-section #popular #popular-section, .movies-section #popular #top-rated-section, .movies-section #popular #upcoming-section, .movies-section #popular #now-playing-section, .movies-section #top-rated #popular-section, .movies-section #top-rated #top-rated-section, .movies-section #top-rated #upcoming-section, .movies-section #top-rated #now-playing-section, .movies-section #upcoming #popular-section, .movies-section #upcoming #top-rated-section, .movies-section #upcoming #upcoming-section, .movies-section #upcoming #now-playing-section, .movies-section #now-playing #popular-section, .movies-section #now-playing #top-rated-section, .movies-section #now-playing #upcoming-section, .movies-section #now-playing #now-playing-section {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .movies-section #movie-poster {
-  height: 250px;
+  height: 283px;
   transform: scale(1);
-  transition: scale 0.4s ease 0.1s;
+  transition: transform 0.4s ease 0.1s;
 }
 .movies-section #movie-title {
   max-width: 150px;
@@ -424,6 +434,12 @@ main {
 }
 .movies-section #movie-node:hover #movie-title {
   color: #081c24;
+}
+.movies-section .load-more {
+  width: 20%;
+  color: #081c24;
+  border: solid 1px #081c24;
+  background-color: #f8f8f8;
 }
 
 #movie-title, .view-all, i {

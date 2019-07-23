@@ -23,7 +23,7 @@
         </div>
         <ul>
             <li id="popular-nav">
-                <a href="">
+                <a href="#">
                     <div class="nav-box">
                         <img id="icon_popular" class="nav-icon" src="img/popular.png">
                         <h3>POPULAR</h3>
@@ -31,7 +31,7 @@
                 </a>
             </li>
             <li id="top-rated-nav">
-                <a href="">
+                <a href="#">
                     <div class="nav-box">
                         <img id="icon_top_rated" class="nav-icon" src="img/top_rated.png">
                         <h3>TOP RATED</h3>
@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li id="upcoming-nav">
-                <a href="">
+                <a href="#">
                     <div class="nav-box">
                         <img id="icon_upcoming" class="nav-icon" src="img/upcoming.png">
                         <h3>UPCOMING</h3>
@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li id="now-playing-nav">
-                <a href="">
+                <a href="#">
                     <div class="nav-box">
                         <img id="icon_now_playing" class="nav-icon" src="img/now_playing.png">
                         <h3>NOW PLAYING</h3>
@@ -58,11 +58,12 @@
     </nav>
     <main>
         <section class="banner" id="banner">
+            <div class="background-over"></div>
             <h1 id="banner-title">THE MOVIE DB APP</h1>
         </section>
         <section class="section-container">
             <section class="movies-section">
-                <div class="popular-section">
+                <div id="popular">
                     <div class="movies-title">
                         <h2>Popular Movies</h2>
                         <h4><a href="" class="view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
@@ -73,8 +74,9 @@
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
+                    <button type="button" class="hidden" class="load-more">Load more</button>
                 </div>
-                <div class="top-rated-section">
+                <div id="top-rated">
                     <div class="movies-title">
                         <h2>Top Rated Movies</h2>
                         <h4><a href="" class="view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
@@ -85,8 +87,9 @@
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
+                    <button type="button" class="hidden" class="load-more">Load more</button>
                 </div>
-                <div class="upcoming-section">
+                <div id="upcoming">
                     <div class="movies-title">
                         <h2>Upcoming Movies</h2>
                         <h4><a href="" class="view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
@@ -97,8 +100,9 @@
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
+                    <button type="button" class="hidden" class="load-more">Load more</button>
                 </div>
-                <div class="now-playing-section">
+                <div id="now-playing">
                     <div class="movies-title">
                         <h2>Now Playing Movies</h2>
                         <h4><a href="" class="view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
@@ -109,6 +113,7 @@
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
+                    <button type="button" class="hidden" class="load-more">Load more</button>
                 </div>
             </section>
         </section>

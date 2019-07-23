@@ -30,7 +30,6 @@ main {
     background-position: 0% 20%;
     height: 382px;
     width: 100%;
-    opacity: 0.5;
     position: relative;
 
     #banner-title {
@@ -38,8 +37,17 @@ main {
         transform: translate(160%, 185px);
         margin: 0;
         color: $dark;
-        opacity: 1;
     }
+}
+
+.background-over {
+    position: absolute;
+    background: #ffffff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
 }
 
 .section-container {
@@ -54,21 +62,23 @@ main {
     flex-direction: column;
     margin: 0px 30px;
     box-sizing: border-box;
+    align-content: space-between;
 
-    .popular-section, .top-rated-section, .upcoming-section, .now-playing-section {
+    #popular, #top-rated, #upcoming, #now-playing {
         display: flex;
         flex-direction: column;
 
         #popular-section, #top-rated-section, #upcoming-section, #now-playing-section {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
     }
 
     #movie-poster {
-        height: 250px;
+        height: 283px;
         transform: scale(1);
-        transition: scale .4s ease .1s;
+        transition: transform .4s ease .1s;
     }
 
     #movie-title {
@@ -84,6 +94,13 @@ main {
         #movie-title {
             color: $dark;
         }
+    }
+
+    .load-more {
+        width: 20%;
+        color: $dark;
+        border: solid 1px $dark;
+        background-color: $light;
     }
 }
 
