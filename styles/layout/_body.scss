@@ -4,7 +4,7 @@ body {
     font-family: $principal-font;
 
     a {
-        text-decoration: inherit;
+        text-decoration: none;
     
         &:visited {
             color: inherit;
@@ -17,7 +17,7 @@ h2, h3, h4 {
 }
 
 main {
-    margin-top: 75px;
+    margin: 75px 0px 0px 95px;
     height: 382px;
     width: 100%;
     display: block;
@@ -32,44 +32,91 @@ main {
     width: 100%;
     opacity: 0.5;
     position: relative;
+
+    #banner-title {
+        position: absolute;
+        transform: translate(160%, 185px);
+        margin: 0;
+        color: $dark;
+        opacity: 1;
+    }
+}
+
+.section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .movies-section {
-    width: 96%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     margin: 0px 30px;
     box-sizing: border-box;
 
+    .popular-section, .top-rated-section, .upcoming-section, .now-playing-section {
+        display: flex;
+        flex-direction: column;
+
+        #popular-section, #top-rated-section, #upcoming-section, #now-playing-section {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
     #movie-poster {
         height: 250px;
+        transform: scale(1);
+        transition: scale .4s ease .1s;
     }
 
     #movie-title {
         max-width: 150px;
+        color: $dark-fade;
+        font-size: $title-size;
     }
+    
+    #movie-node:hover {
+        #movie-poster {
+            transform: scale(1.05);
+        }
+        #movie-title {
+            color: $dark;
+        }
+    }
+}
+
+#movie-title, .view-all, i {
+    transition: color .4s ease .1s;
 }
 
 .movies-title {
     display: flex;
     justify-content: space-between;
+    margin: 20px 0px;
 
     h2 {
         color: $dark;
         font-size: $medium-size;
     }
 
-    h4 {
+    .view-all {
         color: $dark-fade;
+        font-size: $title-size;
 
         &:hover {
             color: $dark;
+
+            i {
+                color: $dark;
+            }
         }
     }
 
     i {
         color: $dark-fade;
-        margin-left: 20px;
+        margin-left: 10px;
     }
 }
 
@@ -86,4 +133,8 @@ main {
             flex-wrap: wrap;
         }
     }
+}
+
+.hidden {
+    display: none;
 }

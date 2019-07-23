@@ -8,7 +8,7 @@ header {
     background-color: $light;
     z-index: 999;
 
-    svg {
+    img {
         margin-left: 30px;
         height: 18px;
     }
@@ -16,6 +16,9 @@ header {
 
 nav {
     width: 95px;
+    min-height: 100vh;
+    position: fixed;
+    z-index: 999;
     display: block;
     background-color: #ffffff;
 
@@ -24,7 +27,6 @@ nav {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        height: 400px;
 
         li{
             list-style: none;
@@ -33,9 +35,15 @@ nav {
         h3 {
             font-size: $nav-size;
             color: $dark-fade;
-            transition: color .6s ease .2s;
+            transition: color .4s ease .1s;
+            margin: 10px 0px 0px 0px;
         }
     }
+}
+
+#iconSearch, .nav-icon {
+    opacity: 0.5;
+    transition: opacity .4s ease-out .1s;
 }
 
 .search-box {
@@ -55,7 +63,7 @@ nav {
             outline: none;
 
             #iconSearch {
-                fill: $dark;
+                opacity: 0.8;
             }
         }
     }
@@ -67,11 +75,11 @@ nav {
     flex-direction: column;
     align-items: center;
     width: 95px;
-    height: 75px;
 }
 
 .box-ada {
     background-color: $dark;
+    height: 75px;
     
     img {
         width: 38px;
@@ -81,19 +89,18 @@ nav {
 
 .nav-box {
     border-bottom: solid $light 2px;
+    height: 93.8px;
 
     &:hover h3 {
         color: $dark;
     }
 
-    &:hover svg {
-        fill: $dark;
+    &:hover .nav-icon {
+        opacity: 0.8;
     }
-}
 
-svg {
-    fill: $dark-fade;
-    width: 20px;
-    height: 20px;
-    transition: fill .6s ease .2s;
+    img {
+        width: 20px;
+        height: 20px;
+    }
 }
