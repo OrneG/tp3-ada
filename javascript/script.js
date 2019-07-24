@@ -37,7 +37,6 @@ let textoBusqueda = search.value;
 //     }, 300);
 // }
 
-
 const getMovies = (url, movie) => {
     fetch(url)
         .then(response => response.json())
@@ -57,6 +56,11 @@ const getMovies = (url, movie) => {
                 newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
                 newMovie.children[1].innerText = movie1.title;
                 movie.appendChild(newMovie);
+
+                newMovie.onclick = function () {
+                    getMovie(movie1.id);
+                };
+
             }
         })
         .catch();
@@ -83,6 +87,10 @@ const updatePage = (url, movie) => {
                 newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
                 newMovie.children[1].innerText = movie1.title;
                 movie.appendChild(newMovie);
+
+                newMovie.onclick = function () {
+                    getMovie(movie1.id);
+                };
             }
         })
         .catch();
