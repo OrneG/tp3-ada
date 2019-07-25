@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;subset=cyrillic" rel="stylesheet">
 </head>
 
-<body>
+<body id="body">
     <header>
         <div class="search-box">
             <img id="iconSearch" src="img/search.png">
@@ -131,7 +131,36 @@
             </section>
         </section>
     </main>
+    <!----------------------------------------------------------------------------------------
+                                                 MODAL
+    ------------------------------------------------------------------------------------------->
+    <section id="modal" class="modal-body">
+        <div class="modal">
+            <div class="modal-header">
+            <img src="" alt="" class="modal-header-img" id="modal-background">
+            <div class="modal-title">
+                <h2 id="modal-movie-title">Título de la Película</h2>
+                <p id="modal-tagline">tagline</p>
+            </div>
+            <div class="modal-header-opacity"></div>
+            <img src="" alt="" class="modal-poster" id="modal-movie-poster">
+            <p class="close-modal" id="close-modal">X</p>
+        </div>
+            <div class="modal-description">
+                <div class="modal-description-text">
+                    <p id="modal-movie-plot">Argumento</p>
+                    <h4>GENRES</h4>
+                    <p id="modal-genres">Los genéros</p>
+                    <h4 >RELEASE DATE</h4>
+                    <p id="modal-date">La fecha de lanzamiento</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="javascript/script.js"></script>
+    <script src="javascript/functions.js"></script>
+
+
 </body>
 
 </html>
