@@ -122,7 +122,7 @@ nowPlayingNav.onclick = function () {
 
 
 search.onkeypress = function () {
-    searchResult.style.display = 'block';
+    searchResult.style.display = 'flex';
     upcomingSection.style.display = 'none';
     popularSection.style.display = 'none';
     topRatedSection.style.display = 'none';
@@ -133,8 +133,6 @@ search.onkeypress = function () {
 
 const updatePopular = () => {
     getMovies(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`, popular)
-
-
 }
 
 updatePopular();
