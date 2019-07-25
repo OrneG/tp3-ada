@@ -1,5 +1,5 @@
 const modalBody = document.getElementById('body');
-const modal = document.getElementById('modal');
+const modalVisible = document.getElementById('modal');
 
 const modalTitle = document.getElementById('modal-movie-title');
 const modalTagline = document.getElementById('modal-tagline');
@@ -10,7 +10,7 @@ const modalBackground = document.getElementById('modal-background')
 const modalPoster = document.getElementById('modal-movie-poster');
 
 const getMovie = movieId => {
-    modal.classList.add('modal-body');
+    modalVisible.style.visibility = 'visible';
     modalBody.classList.add('stop-scrolling');
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
         .then(response => response.json())
@@ -27,6 +27,8 @@ const getMovie = movieId => {
 const closeModal = document.getElementById('close-modal');
 
 closeModal.onclick = () => {
-    modal.classList.remove('modal-body');
+    modalVisible.style.visibility = 'hidden';
+    modalBody.classList.remove('stop-scrolling');
+
 }
 

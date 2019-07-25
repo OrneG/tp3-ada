@@ -593,9 +593,8 @@ nav ul h3 {
   z-index: 1000;
   display: flex;
   justify-content: center;
-  position: absolute;
   overflow: auto;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .modal {
@@ -680,15 +679,16 @@ nav ul h3 {
 }
 
 .modal-title {
+  width: 50%;
+  margin-left: 340px;
   color: #ffffff;
-  padding-left: 200px;
   z-index: 1002;
   font-size: #bc3b69;
   font-weight: 100;
 }
 .modal-title h2 {
   font-size: 30px;
-  font-weight: bold;
+  font-weight: 550;
 }
 
 .close-modal {
