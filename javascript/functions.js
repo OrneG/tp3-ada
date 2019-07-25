@@ -29,6 +29,7 @@ const closeModal = document.getElementById('close-modal');
 closeModal.onclick = () => {
     modalVisible.style.visibility = 'hidden';
     modalBody.classList.remove('stop-scrolling');
-
 }
+
+// modalBackground.style.backgroundImage = `URL('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`;
 
