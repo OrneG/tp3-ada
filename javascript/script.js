@@ -155,6 +155,4 @@ const updateNowPlaying = () => {
     getMovies(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`, nowPlaying)
 }
 
-
-
 updateNowPlaying();
