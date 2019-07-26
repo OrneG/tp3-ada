@@ -59,14 +59,17 @@
     <main>
         <section class="banner" id="banner">
             <div class="background-over"></div>
-            <h1 id="banner-title">THE MOVIE DB APP</h1>
+            <div class="tittle-container">
+                <h1 id="banner-title">THE MOVIE DB APP</h1>
+            </div>
         </section>
         <section class="section-container">
             <section class="movies-section">
                 <div id="popular">
                     <div class="movies-title">
                         <h2>Popular Movies</h2>
-                        <h4><a href="#" class="view-all" id="popular-view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
+                        <h4><a href="#" class="view-all" id="popular-view-all">View all<i
+                                    class="fas fa-long-arrow-alt-right"></i></a></h4>
                     </div>
                     <div class="movies-body" id="popular-section">
                         <div id="movie-node">
@@ -79,7 +82,8 @@
                 <div id="top-rated">
                     <div class="movies-title">
                         <h2>Top Rated Movies</h2>
-                        <h4><a href="#" class="view-all" id="top-rated-view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
+                        <h4><a href="#" class="view-all" id="top-rated-view-all">View all<i
+                                    class="fas fa-long-arrow-alt-right"></i></a></h4>
                     </div>
                     <div class="movies-body" id="top-rated-section">
                         <div id="movie-node">
@@ -92,7 +96,8 @@
                 <div id="upcoming">
                     <div class="movies-title">
                         <h2>Upcoming Movies</h2>
-                        <h4><a href="#" class="view-all" id="upcoming-view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
+                        <h4><a href="#" class="view-all" id="upcoming-view-all">View all<i
+                                    class="fas fa-long-arrow-alt-right"></i></a></h4>
                     </div>
                     <div class="movies-body" id="upcoming-section">
                         <div id="movie-node">
@@ -105,7 +110,8 @@
                 <div id="now-playing">
                     <div class="movies-title">
                         <h2>Now Playing Movies</h2>
-                        <h4><a href="#" class="view-all" id="now-playing-view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
+                        <h4><a href="#" class="view-all" id="now-playing-view-all">View all<i
+                                    class="fas fa-long-arrow-alt-right"></i></a></h4>
                     </div>
                     <div class="movies-body" id="now-playing-section">
                         <div id="movie-node">
@@ -137,21 +143,21 @@
     <section id="modal" class="modal-body">
         <div class="modal">
             <div class="modal-header">
-            <img src="" alt="" class="modal-header-img" id="modal-background">
-            <div class="modal-title">
-                <h2 id="modal-movie-title">Título de la Película</h2>
-                <p id="modal-tagline">tagline</p>
+                <img src="" alt="" class="modal-header-img" id="modal-background">
+                <div class="modal-title">
+                    <h2 id="modal-movie-title">Título de la Película</h2>
+                    <p id="modal-tagline">tagline</p>
+                </div>
+                <div class="modal-header-opacity"></div>
+                <img src="" alt="" class="modal-poster" id="modal-movie-poster">
+                <p class="close-modal" id="close-modal">X</p>
             </div>
-            <div class="modal-header-opacity"></div>
-            <img src="" alt="" class="modal-poster" id="modal-movie-poster">
-            <p class="close-modal" id="close-modal">X</p>
-        </div>
             <div class="modal-description">
                 <div class="modal-description-text">
                     <p id="modal-movie-plot">Argumento</p>
                     <h4>GENRES</h4>
                     <p id="modal-genres">Los genéros</p>
-                    <h4 >RELEASE DATE</h4>
+                    <h4>RELEASE DATE</h4>
                     <p id="modal-date">La fecha de lanzamiento</p>
                 </div>
             </div>

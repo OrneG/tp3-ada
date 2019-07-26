@@ -359,13 +359,18 @@ body a:visited {
   color: inherit;
 }
 
-h2, h3, h4 {
+* {
+  box-sizing: border-box;
+}
+
+h2,
+h3,
+h4 {
   font-weight: 300;
 }
 
 main {
   margin: 75px 0px 0px 95px;
-  height: 382px;
   width: 100%;
   display: block;
 }
@@ -377,13 +382,21 @@ main {
   background-position: 0% 20%;
   height: 382px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
+}
+.banner .tittle-container {
+  text-align: center;
+  position: relative;
+  width: 286px;
 }
 .banner #banner-title {
   position: absolute;
-  transform: translate(160%, 185px);
   margin: 0;
   color: #081c24;
+  font-weight: 500;
 }
 
 .background-over {
@@ -403,34 +416,69 @@ main {
 }
 
 .movies-section {
-  width: 90%;
   display: flex;
   flex-direction: column;
-  margin: 0px 30px;
-  box-sizing: border-box;
   align-content: space-between;
 }
-.movies-section #popular, .movies-section #top-rated, .movies-section #upcoming, .movies-section #now-playing, .movies-section #search-results {
+.movies-section #popular,
+.movies-section #top-rated,
+.movies-section #upcoming,
+.movies-section #now-playing,
+.movies-section #search-results {
   display: flex;
   flex-direction: column;
 }
-.movies-section #popular #popular-section, .movies-section #popular #top-rated-section, .movies-section #popular #upcoming-section, .movies-section #popular #now-playing-section, .movies-section #popular #search-results-section, .movies-section #top-rated #popular-section, .movies-section #top-rated #top-rated-section, .movies-section #top-rated #upcoming-section, .movies-section #top-rated #now-playing-section, .movies-section #top-rated #search-results-section, .movies-section #upcoming #popular-section, .movies-section #upcoming #top-rated-section, .movies-section #upcoming #upcoming-section, .movies-section #upcoming #now-playing-section, .movies-section #upcoming #search-results-section, .movies-section #now-playing #popular-section, .movies-section #now-playing #top-rated-section, .movies-section #now-playing #upcoming-section, .movies-section #now-playing #now-playing-section, .movies-section #now-playing #search-results-section, .movies-section #search-results #popular-section, .movies-section #search-results #top-rated-section, .movies-section #search-results #upcoming-section, .movies-section #search-results #now-playing-section, .movies-section #search-results #search-results-section {
+.movies-section #popular #popular-section,
+.movies-section #popular #top-rated-section,
+.movies-section #popular #upcoming-section,
+.movies-section #popular #now-playing-section,
+.movies-section #popular #search-results-section,
+.movies-section #top-rated #popular-section,
+.movies-section #top-rated #top-rated-section,
+.movies-section #top-rated #upcoming-section,
+.movies-section #top-rated #now-playing-section,
+.movies-section #top-rated #search-results-section,
+.movies-section #upcoming #popular-section,
+.movies-section #upcoming #top-rated-section,
+.movies-section #upcoming #upcoming-section,
+.movies-section #upcoming #now-playing-section,
+.movies-section #upcoming #search-results-section,
+.movies-section #now-playing #popular-section,
+.movies-section #now-playing #top-rated-section,
+.movies-section #now-playing #upcoming-section,
+.movies-section #now-playing #now-playing-section,
+.movies-section #now-playing #search-results-section,
+.movies-section #search-results #popular-section,
+.movies-section #search-results #top-rated-section,
+.movies-section #search-results #upcoming-section,
+.movies-section #search-results #now-playing-section,
+.movies-section #search-results #search-results-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.movies-section #movies-body {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
-.movies-section #movie-poster {
-  height: 283px;
+.movies-section #movie-node #movie-poster {
+  width: 100%;
+  margin: 0;
+  padding: 0;
   transform: scale(1);
-  transition: transform 0.4s ease 0.1s;
+  box-shadow: 0 0 0;
+  transition: all 0.5s ease 0.1s;
 }
-.movies-section #movie-title {
+.movies-section #movie-node #movie-title {
   max-width: 150px;
+  flex-wrap: wrap;
   color: #081c2488;
   font-size: 14px;
 }
 .movies-section #movie-node:hover #movie-poster {
   transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(8, 28, 36, 0.1);
 }
 .movies-section #movie-node:hover #movie-title {
   color: #081c24;
@@ -442,14 +490,16 @@ main {
   background-color: #f8f8f8;
 }
 
-#movie-title, .view-all, i {
-  transition: color 0.4s ease 0.1s;
+#movie-title,
+.view-all,
+i {
+  transition: color 0.5s ease 0.1s;
 }
 
 .movies-title {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0px;
+  margin: 20px 30px;
 }
 .movies-title h2 {
   color: #081c24;
@@ -470,19 +520,6 @@ main {
   margin-left: 10px;
 }
 
-#movies-body {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-#movies-body .movie-node {
-  margin: 0px 10px;
-}
-#movies-body .movie-node .movie-title {
-  flex-wrap: wrap;
-}
-
 .hidden {
   display: none;
 }
@@ -495,7 +532,7 @@ header {
   position: fixed;
   margin-left: 95px;
   background-color: #f8f8f8;
-  z-index: 999;
+  z-index: 1000;
 }
 header img {
   margin-left: 30px;
@@ -515,6 +552,7 @@ nav ul {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  height: 382px;
 }
 nav ul li {
   list-style: none;
@@ -542,7 +580,7 @@ nav ul h3 {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  width: 90%;
+  width: 88%;
 }
 .search-box input:focus {
   outline: none;
@@ -702,6 +740,66 @@ nav ul h3 {
 .stop-scrolling {
   height: 100%;
   overflow: hidden;
+}
+
+@media (min-width: 500px) {
+  #movie-node {
+    padding: 15px;
+    width: 50%;
+  }
+}
+@media (max-width: 750px) {
+  header,
+.box-ada {
+    height: 50px;
+  }
+
+  .box-ada {
+    width: 50px;
+  }
+  .box-ada img {
+    width: 30px;
+    height: 30px;
+  }
+
+  header {
+    border-bottom: solid #e2e2e29c 1px;
+    margin-left: 50px;
+  }
+  header .search-box {
+    padding: 0;
+  }
+
+  nav {
+    width: 100%;
+    background-color: #f8f8f8f8;
+  }
+  nav ul {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+  nav ul li {
+    width: 49%;
+    display: inline-block;
+  }
+  nav ul .nav-box {
+    width: 100%;
+    border-bottom: solid #e2e2e29c 1px;
+    height: 80px;
+  }
+}
+@media (min-width: 900px) {
+  #movie-node {
+    padding: 20px;
+    width: 25%;
+  }
+}
+@media (min-width: 1250px) {
+  #movie-node {
+    padding: 30px;
+    width: 20%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
