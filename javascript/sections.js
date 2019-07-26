@@ -119,7 +119,7 @@ const onclickNowPlaying = function () {
 nowPlayingNav.onclick = onclickNowPlaying;
 nowPlayingViewAll.onclick = onclickNowPlaying;
 
-search.onkeypress = function () {
+search.onchange = function () {
     searchSection.style.display = 'block';
     searchResult.style.display = 'flex';
     upcomingSection.style.display = 'none';
