@@ -679,12 +679,16 @@ nav ul h3 {
   line-height: 0.2;
 }
 
+#modal-movie-plot {
+  height: 100%;
+}
+
 .modal-title {
   width: 50%;
   margin-left: 380px;
   color: #ffffff;
   z-index: 1002;
-  font-size: #bc3b69;
+  font-size: 14px;
   font-weight: 100;
 }
 .modal-title h2 {
