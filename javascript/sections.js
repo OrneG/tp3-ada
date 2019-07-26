@@ -11,7 +11,6 @@ const updatePage = (url, movie) => {
 
             const twentyMovies = data.results;
             movie.innerHTML = '';
-            viewAll.innerText = `${data.total_results}`;
 
             for (let i = 0; i < twentyMovies.length; i++) {
                 const movie1 = twentyMovies[i];
@@ -24,9 +23,36 @@ const updatePage = (url, movie) => {
                     getMovie(movie1.id);
                 };
             }
+            
+            const getResultsNumber = type => {
+                if (type === popular) {
+                popularviewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
+                } else if (type === topRated) {
+                    topRatedViewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
+                } else if (type === upcoming) {
+                    upcomingViewAll.innerHTML = `<a class="view-all">${data.total_results} results`;
+                } else if (type === nowPlaying) {
+                    nowPlayingViewAll.innerHTML = `<a class="view-all">${data.total_results} results`;
+                } else if (type === searchResult) {
+                    searchViewAll.innerHTML = `<a class="view-all">${data.total_results} results`;
+                }
+            };
+            getResultsNumber(movie);
+  
+            // loadMore.onclick = () => {
+            //     currentPage++;
+            //     movieModel.innerHTML += updatePage(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${currentPage}`, nowPlaying);
+            // }
+
         })
         .catch();
 }
+
+
+// variables para el Load More y la página actual
+let currentPage = 1;
+const nowPlayingLoadMore = document.getElementById('load-more');
+// ----------------------------------------------
 
 const onclickPopular = function () {
     popularSection.style.display = 'block';
@@ -53,6 +79,8 @@ const onclickTopRated = function () {
 topRatedNav.onclick = onclickTopRated;
 topRatedViewAll.onclick = onclickTopRated;
 
+
+
 const onclickUpcoming = function () {
     upcomingSection.style.display = 'block';
     popularSection.style.display = 'none';
@@ -71,8 +99,12 @@ const onclickNowPlaying = function () {
     topRatedSection.style.display = 'none';
     upcomingSection.style.display = 'none';
     searchSection.style.display = 'none';
-    updatePage(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=1`, nowPlaying);
+    nowPlayingLoadMore.classList.remove('hidden');
+    updatePage(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${currentPage}`, nowPlaying);
 }
+
+
+
 
 nowPlayingNav.onclick = onclickNowPlaying;
 nowPlayingViewAll.onclick = onclickNowPlaying;
@@ -86,6 +118,7 @@ search.onkeypress = function () {
     nowPlayingSection.style.display = 'none';
     updatePage(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search.value}`, searchResult);
 }
+
 
 // const getCurrentPage = (url) => {
 //     fetch(url)

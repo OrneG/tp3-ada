@@ -617,18 +617,15 @@ nav ul h3 {
   width: 770px;
   height: 350px;
   background-color: #0c2028;
+  background-image: url("../../img/no-image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   vertical-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   background-position: 50% 50%;
-}
-
-.modal-header-img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
 }
 
 .modal-header-opacity {
@@ -641,13 +638,16 @@ nav ul h3 {
   opacity: 0.85;
 }
 
-.modal-poster, .modal-poster-img {
+.modal-poster {
   width: 300px;
   height: 450px;
   position: absolute;
   top: 40px;
   left: 40px;
   z-index: 1001;
+  background-image: url("../../img/no-image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .modal-description {
@@ -686,11 +686,18 @@ nav ul h3 {
 }
 
 .close-modal {
+  width: 25px;
+  font-size: 24px;
+  text-align: center;
   position: absolute;
   top: 1px;
-  right: 15px;
+  right: 18px;
   color: #ffffff;
-  font-weight: bold;
+  transition: background-color 0.4s ease 0.1s;
+}
+.close-modal:hover {
+  cursor: pointer;
+  background-color: #bc3b69;
 }
 
 .stop-scrolling {

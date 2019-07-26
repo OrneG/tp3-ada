@@ -9,6 +9,7 @@ const popularviewAll = document.getElementById('popular-view-all');
 const topRatedViewAll = document.getElementById('top-rated-view-all');
 const upcomingViewAll = document.getElementById('upcoming-view-all');
 const nowPlayingViewAll = document.getElementById('now-playing-view-all');
+const searchViewAll = document.getElementById('search-view-all');
 /*nav*/
 const popularNav = document.getElementById('popular-nav');
 const topRatedNav = document.getElementById('top-rated-nav');
@@ -28,6 +29,7 @@ const nowPlaying = document.getElementById('now-playing-section');
 const searchResult = document.getElementById('search-results-section');
 
 const search = document.getElementById('search');
+
 
 const getMovies = (url, movie) => {
     fetch(url)
@@ -54,6 +56,7 @@ const getMovies = (url, movie) => {
                 };
             }
             searchSection.style.display = 'none';
+            
         })
         .catch();
 }

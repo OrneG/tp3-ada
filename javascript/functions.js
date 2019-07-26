@@ -15,11 +15,18 @@ const getMovie = movieId => {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
         .then(response => response.json())
         .then(data => {
+
+            const updateGenres = genresList => {
+                modalGenres.innerHTML = genresList.map(genre => genre.name).join(', ');
+            }
+            updateGenres(data.genres);
+
             modalTitle.innerHTML = data.title;
             modalTagline.innerHTML = data.tagline;
             modalPlot.innerHTML = data.overview;
-            modalBackground.src = `https://image.tmdb.org/t/p/w1280/${data.backdrop_path}`;
-            modalPoster.src = `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
+            modalDate.innerText = data.release_date;
+            modalBackground.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`;
+            modalPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${data.poster_path}')`;
             console.log(data);
         })
 }
@@ -30,6 +37,4 @@ closeModal.onclick = () => {
     modalVisible.style.visibility = 'hidden';
     modalBody.classList.remove('stop-scrolling');
 }
-
-// modalBackground.style.backgroundImage = `URL('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`;
 
