@@ -1,5 +1,8 @@
 const modalBody = document.getElementById('body');
 const modalVisible = document.getElementById('modal');
+const closeModal = document.getElementById('close-modal');
+// const outsideModal = document.getElementById('outside');
+
 
 const modalTitle = document.getElementById('modal-movie-title');
 const modalTagline = document.getElementById('modal-tagline');
@@ -27,11 +30,18 @@ const getMovie = movieId => {
             modalDate.innerText = data.release_date;
             modalBackground.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`;
             modalPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${data.poster_path}')`;
+
             console.log(data);
         })
 }
 
-const closeModal = document.getElementById('close-modal');
+
+
+// outside.onclick = () => {
+//     modalVisible.style.visibility = 'hidden';
+//     modalBody.classList.remove('stop-scrolling');
+// };
+
 
 closeModal.onclick = () => {
     modalVisible.style.visibility = 'hidden';
