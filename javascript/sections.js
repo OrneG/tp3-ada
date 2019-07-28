@@ -1,3 +1,11 @@
+// variables para el Load More y la página actual
+let currentPage = 1;
+const popularLoadMore = document.getElementById('popular-load-more');
+const topRatedLoadMore = document.getElementById('top-rated-load-more');
+const upcomingLoadMore = document.getElementById('upcoming-load-more');
+const nowPlayingLoadMore = document.getElementById('now-playing-load-more');
+// ----------------------------------------------
+
 const updatePage = (url, movie) => {
     fetch(url)
         .then(response => response.json())
@@ -6,24 +14,12 @@ const updatePage = (url, movie) => {
                 return;
             }
             banner.classList.add('hidden');
-            console.log(data);
             const movieModel = movie.children[0];
-
             const twentyMovies = data.results;
             movie.innerHTML = '';
 
-            for (let i = 0; i < twentyMovies.length; i++) {
-                const movie1 = twentyMovies[i];
-                const newMovie = movieModel.cloneNode(true);
-                newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
-                newMovie.children[1].innerText = movie1.title;
-                movie.appendChild(newMovie);
+            movie = mapNewMovies(twentyMovies, movieModel, movie);
 
-                newMovie.onclick = function () {
-                    getMovie(movie1.id);
-                };
-            }
-            
             const getResultsNumber = type => {
                 if (type === popular) {
                 popularviewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
@@ -37,22 +33,48 @@ const updatePage = (url, movie) => {
                     searchViewAll.innerHTML = `<a class="view-all">${data.total_results} results`;
                 }
             };
+
             getResultsNumber(movie);
   
-            // loadMore.onclick = () => {
-            //     currentPage++;
-            //     movieModel.innerHTML += updatePage(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${currentPage}`, nowPlaying);
-            // }
-
+            nowPlayingLoadMore.onclick = () => {
+                ++currentPage;
+                let fetchedMovies = loadMorePages(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${currentPage}`, nowPlaying); 
+                movie += fetchedMovies;
+            }
         })
         .catch();
 }
 
+const mapNewMovies = (twentyMovies, movieModel, movie) => {
+    for (let i = 0; i < twentyMovies.length; i++) {
+        const movie1 = twentyMovies[i];
+        const newMovie = movieModel.cloneNode(true);
+        newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
+        newMovie.children[1].innerText = movie1.title;
+        movie.appendChild(newMovie);
 
-// variables para el Load More y la página actual
-let currentPage = 1;
-const nowPlayingLoadMore = document.getElementById('load-more');
-// ----------------------------------------------
+        newMovie.onclick = function () {
+            getMovie(movie1.id);
+        };
+    }
+    return movie;
+}
+
+const loadMorePages = (url, movie) => {
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (!data.results.length) {
+                return;
+            }
+            banner.classList.add('hidden');
+            const movieModel = movie.children[0];
+            const twentyMovies = data.results;
+
+            movie = mapNewMovies(twentyMovies, movieModel, movie);
+        })
+        .catch();
+}
 
 const onclickPopular = function () {
     popularSection.style.display = 'block';
@@ -60,7 +82,7 @@ const onclickPopular = function () {
     upcomingSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
     searchSection.style.display = 'none';
-    updatePage(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=1`, popular);
+    updatePage(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${currentPage}`, popular);
 }
 
 popularNav.onclick = onclickPopular;
@@ -72,14 +94,11 @@ const onclickTopRated = function () {
     upcomingSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
     searchSection.style.display = 'none';
-    updatePage(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=1`, topRated);
+    updatePage(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${currentPage}`, topRated);
 }
-
 
 topRatedNav.onclick = onclickTopRated;
 topRatedViewAll.onclick = onclickTopRated;
-
-
 
 const onclickUpcoming = function () {
     upcomingSection.style.display = 'block';
@@ -87,7 +106,7 @@ const onclickUpcoming = function () {
     topRatedSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
     searchSection.style.display = 'none';
-    updatePage(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=1`, upcoming);
+    updatePage(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=${currentPage}`, upcoming);
 }
 
 upcomingNav.onclick = onclickUpcoming;
@@ -103,9 +122,6 @@ const onclickNowPlaying = function () {
     updatePage(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${currentPage}`, nowPlaying);
 }
 
-
-
-
 nowPlayingNav.onclick = onclickNowPlaying;
 nowPlayingViewAll.onclick = onclickNowPlaying;
 
@@ -119,6 +135,13 @@ search.onkeypress = function () {
     updatePage(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search.value}`, searchResult);
 }
 
+// nowPlayingLoadMore.onclick = onclickLoadMore(nowPlaying);
+
+// const onclickLoadMore = movieSection => {
+//     ++currentPage;
+//     let fetchedMovies = loadMorePages(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${currentPage}`, movieSection); 
+//     movie += fetchedMovies;
+// }
 
 // const getCurrentPage = (url) => {
 //     fetch(url)
