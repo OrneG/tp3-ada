@@ -20,12 +20,7 @@ const updatePage = (url, movie) => {
             movie.innerHTML = '';
 
             movie = mapNewMovies(twentyMovies, movieModel, movie);
-
-                newMovie.onclick = function () {
-                    getMovie(movie1.id);
-                };
-            }
-
+            
             const getResultsNumber = type => {
                 if (type === popular) {
                     popularviewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
@@ -47,15 +42,31 @@ const updatePage = (url, movie) => {
                 let fetchedMovies = loadMorePages(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${currentPage}`, nowPlaying); 
                 movie += fetchedMovies;
             }
+            // const loadMore = (loadMoreSection, updateSection) => {
+            //     ++currentPage;
+            //     let fetchedMovies = loadMorePages(`https://api.themoviedb.org/3/movie/${loadMoreSection}?api_key=${apiKey}&page=${currentPage}`, updateSection); 
+            //     movie += fetchedMovies;
+            // }
+
+            // popularLoadMore.onclick = loadMore(popular);
+            // topRatedLoadMore.onclick = loadMore(top_rated);
+            // upcomingLoadMore.onclick = loadMore(upcoming);
+            // nowPlayingLoadMore.onclick = loadMore("now_playing", nowPlaying);
+            
         })
         .catch();
 }
+
 
 const mapNewMovies = (twentyMovies, movieModel, movie) => {
     for (let i = 0; i < twentyMovies.length; i++) {
         const movie1 = twentyMovies[i];
         const newMovie = movieModel.cloneNode(true);
+        if(movie1.poster_path != null) {
         newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
+    } else {
+        newMovie.children[0].src = "img/no-image.png";
+    }
         newMovie.children[1].innerText = movie1.title;
         movie.appendChild(newMovie);
 
@@ -88,6 +99,7 @@ const onclickPopular = function () {
     upcomingSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
     searchSection.style.display = 'none';
+    popularLoadMore.classList.remove('hidden');
     updatePage(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${currentPage}`, popular);
 }
 
@@ -100,6 +112,7 @@ const onclickTopRated = function () {
     upcomingSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
     searchSection.style.display = 'none';
+    topRatedLoadMore.classList.remove('hidden');
     updatePage(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${currentPage}`, topRated);
 }
 
@@ -112,6 +125,7 @@ const onclickUpcoming = function () {
     topRatedSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
     searchSection.style.display = 'none';
+    upcomingLoadMore.classList.remove('hidden');
     updatePage(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=${currentPage}`, upcoming);
 }
 

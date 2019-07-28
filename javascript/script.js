@@ -48,10 +48,10 @@ const getMovies = (url, movie) => {
             for (let i = 0; i < fiveMovies.length; i++) {
                 const movie1 = fiveMovies[i];
                 const newMovie = movieModel.cloneNode(true);
-                if(movie1.poster_path.value === null) {
-                    newMovie.children[0].src = `../img/no-image.png`;
+                if (movie1.poster_path != null) {
+                    newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
                 } else {
-                newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
+                    newMovie.children[0].src = `img/no-image.png`;
                 }
                 newMovie.children[1].innerText = movie1.title;
                 movie.appendChild(newMovie);
@@ -61,7 +61,7 @@ const getMovies = (url, movie) => {
                 };
             }
             searchSection.style.display = 'none';
-            
+
         })
         .catch();
 }

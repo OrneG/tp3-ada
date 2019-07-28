@@ -17,6 +17,7 @@
             <input type="search" placeholder="Search for a movie..." class="header-search" id="search">
         </div>
     </header>
+    <!------------------------ ASIDE ------------------------>
     <nav>
         <div class="box-ada">
             <a href="index.html"><img src="img/icono-ada.svg"></a>
@@ -56,6 +57,7 @@
             </li>
         </ul>
     </nav>
+    <!------------------------ HOME BANNER ------------------------>
     <main>
         <section class="banner" id="banner">
             <div class="background-over"></div>
@@ -63,12 +65,19 @@
                 <h1 id="banner-title">THE MOVIE DB APP</h1>
             </div>
         </section>
+
+        <!------------------------ SECTIONS ------------------------>
+
         <section class="section-container">
             <section class="movies-section">
+
+        <!------------------------ POPULAR ------------------------>
+
                 <div id="popular">
                     <div class="movies-title">
                         <h2>Popular Movies</h2>
-                        <h4 id="popular-view-all"><a href="#" class="view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
+                        <h4 id="popular-view-all"><a href="#" class="view-all">View all<i
+                                    class="fas fa-long-arrow-alt-right"></i></a></h4>
                     </div>
                     <div class="movies-body" id="popular-section">
                         <div id="movie-node">
@@ -76,12 +85,16 @@
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
-                    <button type="button" class="hidden" class="load-more" id="popular-load-more">Load more</button>
+                    <div class="button-container">
+                        <button type="button" class="hidden load-more" id="popular-load-more">Load more</button>
+                    </div>
                 </div>
+        <!------------------------ TOP RATED ------------------------>
                 <div id="top-rated">
                     <div class="movies-title">
                         <h2>Top Rated Movies</h2>
-                        <h4 id="top-rated-view-all"><a href="#" class="view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
+                        <h4 id="top-rated-view-all"><a href="#" class="view-all">View all<i
+                                    class="fas fa-long-arrow-alt-right"></i></a></h4>
                     </div>
                     <div class="movies-body" id="top-rated-section">
                         <div id="movie-node">
@@ -89,12 +102,16 @@
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
-                    <button type="button" class="hidden" class="load-more" id="top-rated-load-more">Load more</button>
+                    <div class="button-container">
+                        <button type="button" class="hidden load-more" id="top-rated-load-more">Load more</button>
+                    </div>
                 </div>
+        <!------------------------ UPCOMING ------------------------>
                 <div id="upcoming">
                     <div class="movies-title">
                         <h2>Upcoming Movies</h2>
-                        <h4 id="upcoming-view-all"><a href="#" class="view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
+                        <h4 id="upcoming-view-all"><a href="#" class="view-all">View all<i
+                                    class="fas fa-long-arrow-alt-right"></i></a></h4>
                     </div>
                     <div class="movies-body" id="upcoming-section">
                         <div id="movie-node">
@@ -102,12 +119,16 @@
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
-                    <button type="button" class="hidden" class="load-more" id="upcoming-load-more">Load more</button>
+                    <div class="button-container">
+                        <button type="button" class="hidden load-more" id="upcoming-load-more">Load more</button>
+                    </div>
                 </div>
+        <!------------------------ NOW PLAYING ------------------------>
                 <div id="now-playing">
                     <div class="movies-title">
                         <h2>Now Playing Movies</h2>
-                        <h4 id="now-playing-view-all"><a href="#" class="view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
+                        <h4 id="now-playing-view-all"><a href="#" class="view-all">View all<i
+                                    class="fas fa-long-arrow-alt-right"></i></a></h4>
                     </div>
                     <div class="movies-body" id="now-playing-section">
                         <div id="movie-node">
@@ -115,12 +136,16 @@
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
-                    <button type="button" class="hidden" class="load-more" id="now-playing-load-more">Load more</button>
+                    <div class="button-container">
+                        <button type="button" class="hidden load-more" id="now-playing-load-more">Load more</button>
+                    </div>
                 </div>
+        <!------------------------ SEARCH RESULTS ------------------------>
                 <div id="search-results">
                     <div class="movies-title">
                         <h2>Search Results</h2>
-                        <h4 id="search-view-all"><a href="#" class="view-all">View all<i class="fas fa-long-arrow-alt-right"></i></a></h4>
+                        <h4 id="search-view-all"><a href="#" class="view-all">View all<i
+                                    class="fas fa-long-arrow-alt-right"></i></a></h4>
                     </div>
                     <div class="movies-body" id="search-results-section">
                         <div id="movie-node">
@@ -128,7 +153,9 @@
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
-                    <button type="button" class="hidden" class="load-more" id="search-load-more">Load more</button>
+                    <div>
+                        <button type="button" class="hidden load-more" id="search-load-more">Load more</button>
+                    </div>
                 </div>
             </section>
         </section>
@@ -138,32 +165,32 @@
     ------------------------------------------------------------------------------------------->
     <section id="modal" class="modal-body">
         <!-- <div class="close-outside" id="outside"></div> -->
-        
         <div class="modal">
             <div class="modal-header" id="modal-background">
-            <div class="modal-title">
-                <h2 id="modal-movie-title">Título de la Película</h2>
-                <p id="modal-tagline">tagline</p>
+                <div class="modal-title">
+                    <h2 id="modal-movie-title">Título de la Película</h2>
+                    <p id="modal-tagline">tagline</p>
+                </div>
+                <div class="modal-header-opacity"></div>
+                <div class="modal-poster" id="modal-movie-poster"></div>
+                <p id="close-modal" class="close-modal"><i class="fas fa-times"></i></p>
             </div>
-            <div class="modal-header-opacity"></div>
-            <div class="modal-poster" id="modal-movie-poster"></div>
-            <p id="close-modal" class="close-modal"><i class="fas fa-times"></i></p>
-        </div>
             <div class="modal-description">
                 <div class="modal-description-text">
                     <div>
-                    <p id="modal-movie-plot">Argumento</p>
-                </div>
+                        <p id="modal-movie-plot">Argumento</p>
+                    </div>
                     <div class="modal-info">
-                    <h4>GENRES</h4>
-                    <p id="modal-genres">Los genéros</p>
-                    <h4>RELEASE DATE</h4>
-                    <p id="modal-date">La fecha de lanzamiento</p>
-                </div>
+                        <h4>GENRES</h4>
+                        <p id="modal-genres">Los genéros</p>
+                        <h4>RELEASE DATE</h4>
+                        <p id="modal-date">La fecha de lanzamiento</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
     <script src="javascript/script.js"></script>
     <script src="javascript/sections.js"></script>
     <script src="javascript/functions.js"></script>

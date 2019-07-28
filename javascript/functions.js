@@ -28,8 +28,16 @@ const getMovie = movieId => {
             modalTagline.innerHTML = data.tagline;
             modalPlot.innerHTML = data.overview;
             modalDate.innerText = data.release_date;
-            modalBackground.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`;
-            modalPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${data.poster_path}')`;
+            if (data.backdrop_path != null) {
+                modalBackground.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`;
+            } else {
+                modalBackground.style.backgroundImage = "url('img/no-image.png')";
+            }
+            if (data.poster_path != null) {
+                modalPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${data.poster_path}')`;
+            } else {
+                modalPoster.style.backgroundImage = "url('img/no-image.png')";
+            }
 
             console.log(data);
         })
