@@ -651,9 +651,19 @@ nav ul h3 {
   visibility: hidden;
 }
 
+.close-outside {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1100;
+  top: 0;
+  left: 0;
+}
+
 .modal {
   width: 770px;
   height: 800px;
+  z-index: 1200;
   margin-top: 40px;
   margin-bottom: 40px;
   background-color: #ffffff;
@@ -700,7 +710,7 @@ nav ul h3 {
   position: absolute;
   top: 40px;
   left: 40px;
-  z-index: 1001;
+  z-index: 1400;
   background-image: url("../../img/no-image.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -740,7 +750,7 @@ nav ul h3 {
   width: 50%;
   margin-left: 380px;
   color: #ffffff;
-  z-index: 1002;
+  z-index: 1500;
   font-size: 14px;
   font-weight: 100;
 }

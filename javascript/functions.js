@@ -1,7 +1,7 @@
 const modalBody = document.getElementById('body');
 const modalVisible = document.getElementById('modal');
 const closeModal = document.getElementById('close-modal');
-// const outsideModal = document.getElementById('outside');
+const outsideModal = document.getElementById('outside');
 
 
 const modalTitle = document.getElementById('modal-movie-title');
@@ -45,10 +45,10 @@ const getMovie = movieId => {
 
 
 
-// outside.onclick = () => {
-//     modalVisible.style.visibility = 'hidden';
-//     modalBody.classList.remove('stop-scrolling');
-// };
+outsideModal.onclick = () => {
+    modalVisible.style.visibility = 'hidden';
+    modalBody.classList.remove('stop-scrolling');
+};
 
 
 closeModal.onclick = () => {
