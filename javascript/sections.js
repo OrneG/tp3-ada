@@ -4,6 +4,7 @@ const popularLoadMore = document.getElementById('popular-load-more');
 const topRatedLoadMore = document.getElementById('top-rated-load-more');
 const upcomingLoadMore = document.getElementById('upcoming-load-more');
 const nowPlayingLoadMore = document.getElementById('now-playing-load-more');
+const searchLoadMore = document.getElementById('search-load-more');
 // ----------------------------------------------
 
 const updatePage = (url, movie) => {
@@ -82,6 +83,8 @@ const onclickPopular = function () {
     upcomingSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
     searchSection.style.display = 'none';
+    popularLoadMore.classList.remove('hidden');
+    popularLoadMore.classList.add('load-more');
     updatePage(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${currentPage}`, popular);
 }
 
@@ -94,6 +97,8 @@ const onclickTopRated = function () {
     upcomingSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
     searchSection.style.display = 'none';
+    topRatedLoadMore.classList.remove('hidden');
+    topRatedLoadMore.classList.add('load-more');
     updatePage(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${currentPage}`, topRated);
 }
 
@@ -106,6 +111,8 @@ const onclickUpcoming = function () {
     topRatedSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
     searchSection.style.display = 'none';
+    upcomingLoadMore.classList.remove('hidden');
+    upcomingLoadMore.classList.add('load-more');
     updatePage(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=${currentPage}`, upcoming);
 }
 
@@ -119,19 +126,22 @@ const onclickNowPlaying = function () {
     upcomingSection.style.display = 'none';
     searchSection.style.display = 'none';
     nowPlayingLoadMore.classList.remove('hidden');
+    nowPlayingLoadMore.classList.add('load-more');
     updatePage(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${currentPage}`, nowPlaying);
 }
 
 nowPlayingNav.onclick = onclickNowPlaying;
 nowPlayingViewAll.onclick = onclickNowPlaying;
 
-search.onkeypress = function () {
+search.onchange = function () {
     searchSection.style.display = 'block';
     searchResult.style.display = 'flex';
     upcomingSection.style.display = 'none';
     popularSection.style.display = 'none';
     topRatedSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
+    searchLoadMore.classList.remove('hidden');
+    searchLoadMore.classList.add('load-more');
     updatePage(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search.value}`, searchResult);
 }
 

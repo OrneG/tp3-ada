@@ -1,107 +1,180 @@
 header {
-    height: 75px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    position: fixed;
-    margin-left: 95px;
-    background-color: $light;
-    z-index: 1000;
+  height: 75px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  margin-left: 95px;
+  background-color: $light;
+  z-index: 1000;
 
-    img {
-        margin-left: 30px;
-        height: 18px;
-    }
+  img {
+    margin-left: 30px;
+    height: 18px;
+  }
 }
 
 nav {
-    width: 95px;
-    min-height: 100vh;
-    position: fixed;
-    z-index: 999;
-    display: block;
-    background-color: #ffffff;
+  width: 95px;
+  min-height: 100vh;
+  position: fixed;
+  z-index: 999;
+  display: block;
+  background-color: #ffffff;
 
-    ul {
-        padding-left: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 382px;
+  ul {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 382px;
 
-        li{
-            list-style: none;
-        }
-
-        h3 {
-            font-size: $nav-size;
-            color: $dark-fade;
-            transition: color .4s ease .1s;
-            margin: 10px 0px 0px 0px;
-        }
+    li {
+      list-style: none;
     }
+
+    h3 {
+      font-size: $nav-size;
+      color: $dark-fade;
+      transition: color 0.4s ease 0.1s;
+      margin: 10px 0px 0px 0px;
+    }
+  }
 }
 
-#iconSearch, .nav-icon {
-    opacity: 0.5;
-    transition: opacity .4s ease-out .1s;
+#iconSearch,
+.nav-icon {
+  opacity: 0.5;
+  transition: opacity 0.4s ease-out 0.1s;
 }
 
 .search-box {
-    outline: none;
-    width: 100%;
+  outline: none;
+  width: 100%;
 
-    input {
-        padding: 15px 30px 15px 10px;
-        border-color: transparent;
-        background-color: transparent;
-        font-size: $search-size;
-        font-family: $principal-font;
-        font-weight: $light-weight;
-        width: 88%;
+  input {
+    padding: 15px 30px 15px 10px;
+    border-color: transparent;
+    background-color: transparent;
+    font-size: $search-size;
+    font-family: $principal-font;
+    font-weight: $light-weight;
+    width: 88%;
 
-        &:focus {
-            outline: none;
+    &:focus {
+      outline: none;
 
-            #iconSearch {
-                opacity: 0.8;
-            }
-        }
+      #iconSearch {
+        opacity: 0.8;
+      }
     }
+  }
 }
 
-.box-ada, .nav-box {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 95px;
+.box-ada,
+.nav-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 95px;
 }
 
 .box-ada {
-    background-color: $dark;
-    height: 75px;
-    
-    img {
-        width: 38px;
-        height: 38px;
-    }
+  background-color: $dark;
+  height: 75px;
+
+  img {
+    width: 38px;
+    height: 38px;
+  }
 }
 
 .nav-box {
-    border-bottom: solid $light 2px;
-    height: 93.8px;
+  border-bottom: solid $light 2px;
+  height: 93.8px;
 
-    &:hover h3 {
-        color: $dark;
-    }
+  &:hover h3 {
+    color: $dark;
+  }
 
-    &:hover .nav-icon {
-        opacity: 0.8;
-    }
+  &:hover .nav-icon {
+    opacity: 0.8;
+  }
 
-    img {
-        width: 20px;
-        height: 20px;
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+#header-hamburger {
+  display: block;
+  position: fixed;
+  width: 55px;
+  height: 50px;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  background: $light;
+  z-index: 10;
+  border-left: 1px solid $grey-border;
+  border-bottom: 1px solid $grey-border;
+
+  .line {
+    position: absolute;
+    width: 23px;
+    height: 1px;
+    background: $dark-fade;
+    transition: all 0.3s ease;
+
+    &:nth-of-type(1) {
+      left: 16px;
+      top: 17px;
     }
+    &:nth-of-type(2) {
+      left: 16px;
+      top: 25px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 23px;
+        height: 1px;
+        background: transparent;
+        transition: all 0.3s ease;
+      }
+    }
+    &:nth-of-type(3) {
+      right: 15px;
+      top: 33px;
+    }
+  }
+}
+
+.hamburger {
+  &--active {
+    .line {
+      &:nth-child(1), &:nth-child(3) {
+        width: 0;
+      }
+      &:nth-child(2) {
+        transform: rotate(-45deg);
+        &:after {
+          transform: rotate(-90deg);
+          background: $dark-fade;
+        }
+      }
+    }
+  }
+}
+
+.visible {
+  visibility: visible;
+}
+
+.width-100 {
+  width: 100%;
 }
