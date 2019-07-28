@@ -630,6 +630,7 @@ nav ul h3 {
   left: 0;
   z-index: 1000;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   overflow: auto;
   visibility: hidden;
@@ -643,6 +644,7 @@ nav ul h3 {
   background-color: #ffffff;
   font-family: "Roboto", sans-serif;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
@@ -652,7 +654,7 @@ nav ul h3 {
 }
 
 .modal-header {
-  width: 770px;
+  width: 100%;
   height: 350px;
   background-color: #0c2028;
   background-image: url("../../img/no-image.png");
@@ -660,6 +662,7 @@ nav ul h3 {
   background-repeat: no-repeat;
   vertical-align: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -689,18 +692,22 @@ nav ul h3 {
 }
 
 .modal-description {
-  width: 770px;
-  height: 450px;
+  width: 100%;
+  min-height: 450px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding-top: 20px;
   padding-left: 90px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .modal-description-text {
   width: 50%;
   margin-left: 250px;
+  display: flex;
+  flex-wrap: wrap;
   font-size: 14px;
   font-weight: 100;
   line-height: 1.8;
@@ -710,12 +717,16 @@ nav ul h3 {
   line-height: 0.2;
 }
 
+#modal-movie-plot {
+  height: 100%;
+}
+
 .modal-title {
   width: 50%;
-  margin-left: 340px;
+  margin-left: 380px;
   color: #ffffff;
   z-index: 1002;
-  font-size: #bc3b69;
+  font-size: 14px;
   font-weight: 100;
 }
 .modal-title h2 {
@@ -723,13 +734,21 @@ nav ul h3 {
   font-weight: 550;
 }
 
+.modal-info {
+  width: 100%;
+}
+
 .close-modal {
-  width: 25px;
+  width: 40px;
+  height: 40px;
   font-size: 24px;
-  text-align: center;
   position: absolute;
-  top: 1px;
-  right: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  right: 0px;
+  margin-top: 0;
   color: #ffffff;
   transition: background-color 0.4s ease 0.1s;
 }
@@ -743,6 +762,42 @@ nav ul h3 {
   overflow: hidden;
 }
 
+@media (max-width: 750px) {
+  .modal-poster {
+    display: none;
+  }
+
+  .modal-description {
+    padding-top: 0;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  .modal-description-text {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 12px;
+  }
+
+  .modal-info {
+    font-size: 14px;
+  }
+
+  .modal {
+    margin-top: 0;
+  }
+
+  .modal-header {
+    top: -35;
+    height: 280px;
+  }
+
+  .modal-title {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
 @media (min-width: 500px) {
   #movie-node {
     padding: 15px;

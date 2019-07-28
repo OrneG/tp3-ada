@@ -72,7 +72,7 @@
                     </div>
                     <div class="movies-body" id="popular-section">
                         <div id="movie-node">
-                            <img id='movie-poster' src="">
+                            <img id='movie-poster' src="img/no-image.png">
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="movies-body" id="top-rated-section">
                         <div id="movie-node">
-                            <img id='movie-poster' src="">
+                            <img id='movie-poster' src="img/no-image.png">
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                     </div>
                     <div class="movies-body" id="upcoming-section">
                         <div id="movie-node">
-                            <img id='movie-poster' src="">
+                            <img id='movie-poster' src="img/no-image.png">
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="movies-body" id="now-playing-section">
                         <div id="movie-node">
-                            <img id='movie-poster' src="">
+                            <img id='movie-poster' src="img/no-image.png">
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
@@ -124,11 +124,11 @@
                     </div>
                     <div class="movies-body" id="search-results-section">
                         <div id="movie-node">
-                            <img id='movie-poster' src="">
+                            <img id='movie-poster' src="img/no-image.png">
                             <h3 id='movie-title'></h3>
                         </div>
                     </div>
-                    <button type="button" class="hidden" class="load-more">Load more</button>
+                    <button type="button" class="hidden" class="load-more" id="search-load-more">Load more</button>
                 </div>
             </section>
         </section>
@@ -137,9 +137,10 @@
                                                  MODAL
     ------------------------------------------------------------------------------------------->
     <section id="modal" class="modal-body">
+        <!-- <div class="close-outside" id="outside"></div> -->
+        
         <div class="modal">
             <div class="modal-header" id="modal-background">
-            <!-- <img src="img/no-image.png" alt="" class="modal-header-img" id="modal-background"> -->
             <div class="modal-title">
                 <h2 id="modal-movie-title">Título de la Película</h2>
                 <p id="modal-tagline">tagline</p>
@@ -150,11 +151,15 @@
         </div>
             <div class="modal-description">
                 <div class="modal-description-text">
+                    <div>
                     <p id="modal-movie-plot">Argumento</p>
+                </div>
+                    <div class="modal-info">
                     <h4>GENRES</h4>
                     <p id="modal-genres">Los genéros</p>
                     <h4>RELEASE DATE</h4>
                     <p id="modal-date">La fecha de lanzamiento</p>
+                </div>
                 </div>
             </div>
         </div>

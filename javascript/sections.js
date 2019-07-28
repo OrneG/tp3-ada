@@ -4,7 +4,8 @@ const popularLoadMore = document.getElementById('popular-load-more');
 const topRatedLoadMore = document.getElementById('top-rated-load-more');
 const upcomingLoadMore = document.getElementById('upcoming-load-more');
 const nowPlayingLoadMore = document.getElementById('now-playing-load-more');
-// ----------------------------------------------
+const searchLoadMore = document.getElementById('search-load-more');
+
 
 const updatePage = (url, movie) => {
     fetch(url)
@@ -20,9 +21,14 @@ const updatePage = (url, movie) => {
 
             movie = mapNewMovies(twentyMovies, movieModel, movie);
 
+                newMovie.onclick = function () {
+                    getMovie(movie1.id);
+                };
+            }
+
             const getResultsNumber = type => {
                 if (type === popular) {
-                popularviewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
+                    popularviewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
                 } else if (type === topRated) {
                     topRatedViewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
                 } else if (type === upcoming) {
@@ -113,6 +119,7 @@ upcomingNav.onclick = onclickUpcoming;
 upcomingViewAll.onclick = onclickUpcoming;
 
 const onclickNowPlaying = function () {
+    let currentPage = 1;
     nowPlayingSection.style.display = 'block';
     popularSection.style.display = 'none';
     topRatedSection.style.display = 'none';
@@ -120,18 +127,24 @@ const onclickNowPlaying = function () {
     searchSection.style.display = 'none';
     nowPlayingLoadMore.classList.remove('hidden');
     updatePage(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${currentPage}`, nowPlaying);
+    // nowPlayingLoadMore.onclick = () => {
+    //     currentPage++;
+    //     updatePage(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${currentPage}`, nowPlaying);
+    // }
+
 }
 
 nowPlayingNav.onclick = onclickNowPlaying;
 nowPlayingViewAll.onclick = onclickNowPlaying;
 
-search.onkeypress = function () {
+search.onchange = function () {
     searchSection.style.display = 'block';
     searchResult.style.display = 'flex';
     upcomingSection.style.display = 'none';
     popularSection.style.display = 'none';
     topRatedSection.style.display = 'none';
     nowPlayingSection.style.display = 'none';
+    searchLoadMore.classList.remove('hidden');
     updatePage(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search.value}`, searchResult);
 }
 
