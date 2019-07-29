@@ -642,7 +642,7 @@ nav ul h3 {
   width: 23px;
   height: 1px;
   background: #081c2488;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease-in-out;
 }
 #header-hamburger .line:nth-of-type(1) {
   left: 16px;
@@ -659,14 +659,15 @@ nav ul h3 {
   height: 1px;
   position: absolute;
   background: transparent;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease-in-out;
 }
 #header-hamburger .line:nth-of-type(4) {
   right: 15px;
   top: 33px;
 }
 
-.hamburger--active #line-1, .hamburger--active #line-3 {
+.hamburger--active #line-1,
+.hamburger--active #line-3 {
   width: 0;
 }
 .hamburger--active #line-2 {

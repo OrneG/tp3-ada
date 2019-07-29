@@ -154,7 +154,7 @@ nowPlayingLoadMore.onclick = () => {
     loadMorePages(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${++currentPage}`, nowPlaying); 
 }
 searchLoadMore.onclick = () => {
-    loadMorePages(`https://api.themoviedb.org/3/searh/movie?api_key=${apiKey}&page=${++currentPage}`, searchresult); 
+    loadMorePages(`https://api.themoviedb.org/3/searh/movie?api_key=${apiKey}&query=${search.value}`, searchResult); 
 }
 
 // La idea era que no se repita tanto código al tocar los botones del "Load More", se pensó algo así, pero no salió:

@@ -9,10 +9,9 @@ const modalDate = document.getElementById('modal-date');
 const modalBackground = document.getElementById('modal-background')
 const modalPoster = document.getElementById('modal-movie-poster');
 
-const headerHamburguer = document.getElementById('header-hamburger');
+const headerHamburger = document.getElementById('header-hamburger');
 const nav = document.getElementById('nav');
 const navUl = document.getElementById('nav-ul');
-const line = document.getElementsByClassName('line');
 
 const getMovie = movieId => {
     modalVisible.style.visibility = 'visible';
@@ -43,8 +42,8 @@ closeModal.onclick = () => {
     modalBody.classList.remove('stop-scrolling');
 }
 
-headerHamburguer.onclick = () => {
+headerHamburger.onclick = () => {
     navUl.classList.toggle('visible');
     nav.classList.toggle('width-100');
-    headerHamburguer.classList.toggle('hamburger--active');
+    headerHamburger.classList.toggle('hamburger--active');
 }
