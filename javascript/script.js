@@ -21,6 +21,7 @@ const topRatedSection = document.getElementById('top-rated');
 const upcomingSection = document.getElementById('upcoming');
 const nowPlayingSection = document.getElementById('now-playing');
 const searchSection = document.getElementById('search-results');
+const search = document.getElementById('search');
 /*secciones-pelis*/
 const popular = document.getElementById('popular-section');
 const topRated = document.getElementById('top-rated-section');
@@ -28,7 +29,7 @@ const upcoming = document.getElementById('upcoming-section');
 const nowPlaying = document.getElementById('now-playing-section');
 const searchResult = document.getElementById('search-results-section');
 
-const search = document.getElementById('search');
+
 
 
 const getMovies = (url, movie) => {
@@ -47,7 +48,11 @@ const getMovies = (url, movie) => {
             for (let i = 0; i < fiveMovies.length; i++) {
                 const movie1 = fiveMovies[i];
                 const newMovie = movieModel.cloneNode(true);
-                newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
+                if (movie1.poster_path != null) {
+                    newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
+                } else {
+                    newMovie.children[0].src = `img/no-image.png`;
+                }
                 newMovie.children[1].innerText = movie1.title;
                 movie.appendChild(newMovie);
 
@@ -56,7 +61,7 @@ const getMovies = (url, movie) => {
                 };
             }
             searchSection.style.display = 'none';
-            
+
         })
         .catch();
 }

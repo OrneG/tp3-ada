@@ -1,5 +1,8 @@
 const modalBody = document.getElementById('body');
 const modalVisible = document.getElementById('modal');
+const closeModal = document.getElementById('close-modal');
+const outsideModal = document.getElementById('outside');
+
 
 const modalTitle = document.getElementById('modal-movie-title');
 const modalTagline = document.getElementById('modal-tagline');
@@ -29,13 +32,28 @@ const getMovie = movieId => {
             modalTagline.innerHTML = data.tagline;
             modalPlot.innerHTML = data.overview;
             modalDate.innerText = data.release_date;
-            modalBackground.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`;
-            modalPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${data.poster_path}')`;
+            if (data.backdrop_path != null) {
+                modalBackground.style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`;
+            } else {
+                modalBackground.style.backgroundImage = "url('img/no-image.png')";
+            }
+            if (data.poster_path != null) {
+                modalPoster.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${data.poster_path}')`;
+            } else {
+                modalPoster.style.backgroundImage = "url('img/no-image.png')";
+            }
+
             console.log(data);
         })
 }
 
-const closeModal = document.getElementById('close-modal');
+
+
+outsideModal.onclick = () => {
+    modalVisible.style.visibility = 'hidden';
+    modalBody.classList.remove('stop-scrolling');
+};
+
 
 closeModal.onclick = () => {
     modalVisible.style.visibility = 'hidden';
