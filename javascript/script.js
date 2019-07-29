@@ -2,7 +2,6 @@ const apiKey = '77c9a071477a6f097501ea60b348aab8';
 const poster = document.getElementById('movie-poster');
 const title = document.getElementById('movie-title');
 const movieSection = document.getElementsByClassName('movies-section');
-const banner = document.getElementById('banner');
 /*view-all*/
 const viewAll = document.getElementsByClassName('view-all');
 const popularviewAll = document.getElementById('popular-view-all');

@@ -6,6 +6,9 @@ const upcomingLoadMore = document.getElementById('upcoming-load-more');
 const nowPlayingLoadMore = document.getElementById('now-playing-load-more');
 const searchLoadMore = document.getElementById('search-load-more');
 
+const banner = document.getElementById('banner');
+const bannerTitle = document.getElementById('banner-title');
+
 const updatePage = (url, movie) => {
     fetch(url)
         .then(response => response.json())
@@ -19,7 +22,7 @@ const updatePage = (url, movie) => {
             movie.innerHTML = '';
 
             movie = mapNewMovies(twentyMovies, movieModel, movie);
-            
+
             const getResultsNumber = type => {
                 if (type === popular) {
                     popularviewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
@@ -35,7 +38,7 @@ const updatePage = (url, movie) => {
             };
 
             getResultsNumber(movie);
-            
+
 
         })
         .catch();
@@ -46,11 +49,11 @@ const mapNewMovies = (twentyMovies, movieModel, movie) => {
     for (let i = 0; i < twentyMovies.length; i++) {
         const movie1 = twentyMovies[i];
         const newMovie = movieModel.cloneNode(true);
-        if(movie1.poster_path != null) {
-        newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
-    } else {
-        newMovie.children[0].src = "img/no-image.png";
-    }
+        if (movie1.poster_path != null) {
+            newMovie.children[0].src = `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${movie1.poster_path}`;
+        } else {
+            newMovie.children[0].src = "img/no-image.png";
+        }
         newMovie.children[1].innerText = movie1.title;
         movie.appendChild(newMovie);
 
@@ -117,7 +120,6 @@ upcomingNav.onclick = onclickUpcoming;
 upcomingViewAll.onclick = onclickUpcoming;
 
 const onclickNowPlaying = function () {
-    let currentPage = 1;
     nowPlayingSection.style.display = 'block';
     popularSection.style.display = 'none';
     topRatedSection.style.display = 'none';
@@ -131,30 +133,38 @@ nowPlayingNav.onclick = onclickNowPlaying;
 nowPlayingViewAll.onclick = onclickNowPlaying;
 
 search.onchange = function () {
-    searchSection.style.display = 'flex';
-    searchResult.style.display = 'flex';
-    upcomingSection.style.display = 'none';
-    popularSection.style.display = 'none';
-    topRatedSection.style.display = 'none';
-    nowPlayingSection.style.display = 'none';
-    searchLoadMore.classList.remove('hidden');
-    updatePage(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search.value}`, searchResult);
+    if (data.results != null ) {
+        searchSection.style.display = 'block';
+        searchResult.style.display = 'flex';
+        upcomingSection.style.display = 'none';
+        popularSection.style.display = 'none';
+        topRatedSection.style.display = 'none';
+        nowPlayingSection.style.display = 'none';
+        searchLoadMore.classList.remove('hidden');
+        updatePage(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search.value}`, searchResult);       
+    } else {
+        banner.classList.remove('hidden');
+        bannerTitle.innerHTML = 'Nothing Found';
+        searchResult.style.display = 'none';
+    }
 }
 
+//total_results
+
 popularLoadMore.onclick = () => {
-    loadMorePages(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${++currentPage}`, popular); 
+    loadMorePages(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${++currentPage}`, popular);
 }
 topRatedLoadMore.onclick = () => {
-    loadMorePages(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${++currentPage}`, topRated); 
+    loadMorePages(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${++currentPage}`, topRated);
 }
 upcomingLoadMore.onclick = () => {
-    loadMorePages(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=${++currentPage}`, upcoming); 
+    loadMorePages(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=${++currentPage}`, upcoming);
 }
 nowPlayingLoadMore.onclick = () => {
-    loadMorePages(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${++currentPage}`, nowPlaying); 
+    loadMorePages(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${++currentPage}`, nowPlaying);
 }
 searchLoadMore.onclick = () => {
-    loadMorePages(`https://api.themoviedb.org/3/searh/movie?api_key=${apiKey}&query=${search.value}`, searchResult); 
+    loadMorePages(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search.value}&page=${++currentPage}`, searchResult);
 }
 
 // La idea era que no se repita tanto código al tocar los botones del "Load More", se pensó algo así, pero no salió:
