@@ -12,6 +12,7 @@ const modalPoster = document.getElementById('modal-movie-poster');
 const headerHamburguer = document.getElementById('header-hamburger');
 const nav = document.getElementById('nav');
 const navUl = document.getElementById('nav-ul');
+const line = document.getElementsByClassName('line');
 
 const getMovie = movieId => {
     modalVisible.style.visibility = 'visible';
