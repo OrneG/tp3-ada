@@ -1,45 +1,48 @@
-// variables para el Load More y la página actual
+/* Load More */
 let currentPage = 1;
 const popularLoadMore = document.getElementById('popular-load-more');
 const topRatedLoadMore = document.getElementById('top-rated-load-more');
 const upcomingLoadMore = document.getElementById('upcoming-load-more');
 const nowPlayingLoadMore = document.getElementById('now-playing-load-more');
 const searchLoadMore = document.getElementById('search-load-more');
-
+/* Banner */
 const banner = document.getElementById('banner');
 const bannerTitle = document.getElementById('banner-title');
+
 
 const updatePage = (url, movie) => {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            if (!data.results.length) {
-                return;
+            if (data.results.length !== 0) {
+                banner.classList.add('hidden');
+                const movieModel = movie.children[0];
+                const twentyMovies = data.results;
+                movie.innerHTML = '';
+
+                movie = mapNewMovies(twentyMovies, movieModel, movie);
+
+                const getResultsNumber = type => {
+                    if (type === popular) {
+                        popularviewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
+                    } else if (type === topRated) {
+                        topRatedViewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
+                    } else if (type === upcoming) {
+                        upcomingViewAll.innerHTML = `<a class="view-all">${data.total_results} results`;
+                    } else if (type === nowPlaying) {
+                        nowPlayingViewAll.innerHTML = `<a class="view-all">${data.total_results} results`;
+                    } else if (type === searchResult) {
+                        searchViewAll.innerHTML = `<a class="view-all">${data.total_results} results`;
+                    }
+                };
+                getResultsNumber(movie);
+
+            } else {
+                banner.classList.remove('hidden');
+                bannerTitle.innerHTML = 'Nothing Found';
+                searchSection.style.display = 'none';
+                searchResult.style.display = 'none';
             }
-            banner.classList.add('hidden');
-            const movieModel = movie.children[0];
-            const twentyMovies = data.results;
-            movie.innerHTML = '';
-
-            movie = mapNewMovies(twentyMovies, movieModel, movie);
-
-            const getResultsNumber = type => {
-                if (type === popular) {
-                    popularviewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
-                } else if (type === topRated) {
-                    topRatedViewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
-                } else if (type === upcoming) {
-                    upcomingViewAll.innerHTML = `<a class="view-all">${data.total_results} results`;
-                } else if (type === nowPlaying) {
-                    nowPlayingViewAll.innerHTML = `<a class="view-all">${data.total_results} results`;
-                } else if (type === searchResult) {
-                    searchViewAll.innerHTML = `<a class="view-all">${data.total_results} results`;
-                }
-            };
-
-            getResultsNumber(movie);
-
-
         })
         .catch();
 }
@@ -79,6 +82,8 @@ const loadMorePages = (url, movie) => {
         })
         .catch();
 }
+
+/* Onclick for each Section */
 
 const onclickPopular = function () {
     popularSection.style.display = 'block';
@@ -133,23 +138,18 @@ nowPlayingNav.onclick = onclickNowPlaying;
 nowPlayingViewAll.onclick = onclickNowPlaying;
 
 search.onchange = function () {
-    if (data.results != null ) {
-        searchSection.style.display = 'block';
-        searchResult.style.display = 'flex';
-        upcomingSection.style.display = 'none';
-        popularSection.style.display = 'none';
-        topRatedSection.style.display = 'none';
-        nowPlayingSection.style.display = 'none';
-        searchLoadMore.classList.remove('hidden');
-        updatePage(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search.value}`, searchResult);       
-    } else {
-        banner.classList.remove('hidden');
-        bannerTitle.innerHTML = 'Nothing Found';
-        searchResult.style.display = 'none';
-    }
+    searchSection.style.display = 'block';
+    searchResult.style.display = 'flex';
+    upcomingSection.style.display = 'none';
+    popularSection.style.display = 'none';
+    topRatedSection.style.display = 'none';
+    nowPlayingSection.style.display = 'none';
+    searchLoadMore.classList.remove('hidden');
+    updatePage(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search.value}`, searchResult);
 }
 
-//total_results
+
+/* Onclick for each Load More */
 
 popularLoadMore.onclick = () => {
     loadMorePages(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${++currentPage}`, popular);

@@ -2,8 +2,7 @@ const modalBody = document.getElementById('body');
 const modalVisible = document.getElementById('modal');
 const closeModal = document.getElementById('close-modal');
 const outsideModal = document.getElementById('outside');
-
-
+/* popup elements */
 const modalTitle = document.getElementById('modal-movie-title');
 const modalTagline = document.getElementById('modal-tagline');
 const modalPlot = document.getElementById('modal-movie-plot');
@@ -11,10 +10,11 @@ const modalGenres = document.getElementById('modal-genres');
 const modalDate = document.getElementById('modal-date');
 const modalBackground = document.getElementById('modal-background')
 const modalPoster = document.getElementById('modal-movie-poster');
-
+/* hamburger nav */
 const headerHamburger = document.getElementById('header-hamburger');
 const nav = document.getElementById('nav');
 const navUl = document.getElementById('nav-ul');
+
 
 const getMovie = movieId => {
     modalVisible.style.visibility = 'visible';
@@ -48,17 +48,16 @@ const getMovie = movieId => {
 }
 
 
-
 outsideModal.onclick = () => {
     modalVisible.style.visibility = 'hidden';
     modalBody.classList.remove('stop-scrolling');
 };
 
-
 closeModal.onclick = () => {
     modalVisible.style.visibility = 'hidden';
     modalBody.classList.remove('stop-scrolling');
 }
+
 
 headerHamburger.onclick = () => {
     navUl.classList.toggle('visible');

@@ -29,8 +29,6 @@ const nowPlaying = document.getElementById('now-playing-section');
 const searchResult = document.getElementById('search-results-section');
 
 
-
-
 const getMovies = (url, movie) => {
     fetch(url)
         .then(response => response.json())
@@ -64,6 +62,7 @@ const getMovies = (url, movie) => {
         })
         .catch();
 }
+
 
 const updatePopular = () => {
     getMovies(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`, popular)
