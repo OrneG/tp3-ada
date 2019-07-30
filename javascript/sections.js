@@ -22,6 +22,8 @@ const updatePage = (url, movie) => {
 
                 movie = mapNewMovies(twentyMovies, movieModel, movie);
 
+                checkMoreThanTwienty(data.results.length);
+
                 const getResultsNumber = type => {
                     if (type === popular) {
                         popularviewAll.innerHTML = `<a class="view-all">${data.total_results} results</a>`;
@@ -36,7 +38,6 @@ const updatePage = (url, movie) => {
                     }
                 };
                 getResultsNumber(movie);
-
             } else {
                 banner.classList.remove('hidden');
                 bannerTitle.innerHTML = 'Nothing Found';
@@ -78,9 +79,19 @@ const loadMorePages = (url, movie) => {
             const movieModel = movie.children[0];
             const twentyMovies = data.results;
 
+            checkMoreThanTwienty(data.results.length);
+
             movie = mapNewMovies(twentyMovies, movieModel, movie);
         })
         .catch();
+}
+
+const checkMoreThanTwienty = (results) => {
+    if (results <= 19) {
+        searchLoadMore.style.visibility = 'hidden';
+    } else {
+        searchLoadMore.style.visibility = 'visible';
+    }
 }
 
 /* Onclick for each Section */
